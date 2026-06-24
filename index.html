@@ -24,7 +24,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="css/output.css" />
+  <link rel="stylesheet" href="css/output.css?v=1782281953441" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -133,14 +133,14 @@
   </div>
   <div class="mobile-nav-link" onclick="toggleMobileSub(this)">
     <span>Services</span> <span>+</span>
-  </div>
-  <div class="mobile-sub-links">
+    <div class="mobile-sub-links">
     <a href="services.html#ofc">OFC Laying & Execution</a>
     <a href="services.html#tower">Tower Erection & Maintenance</a>
     <a href="services.html#solar">Solar Power Installation</a>
     <a href="services.html#civil">Civil Infrastructure</a>
     <a href="services.html#highway">Highway Safety Works</a>
     <a href="services.html#interior">Office Interior Solutions</a>
+  </div>
   </div>
   <div class="mobile-nav-link"><a href="projects.html">Projects</a></div>
   <div class="mobile-nav-link"><a href="industries.html">Industries</a></div>
@@ -1435,6 +1435,7 @@ mobileBtn.addEventListener('click', () => {
 
 function toggleMobileSub(el) {
   const sub = el.querySelector('.mobile-sub-links');
+  el.classList.toggle('open');
   if (sub) sub.classList.toggle('open');
 }
 
