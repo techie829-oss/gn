@@ -7,14 +7,12 @@
    SERVICE CARDS (services.html)
    ======================== */
 .service-card {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  background: #FFFFFF;
   border-radius: 16px;
-  padding: 2rem;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  padding: 2.5rem;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
   height: 100%;
 }
 
@@ -486,8 +484,8 @@
    ======================== */
 :root {
   --text-muted: #64748b;
-  --primary: #0a1628;
-  --primary-light: #0f1e38;
+  --primary: #0A1F44;
+  --primary-light: #333333;
 }
 
 /* ========================
@@ -496,7 +494,15 @@
 @media (max-width: 768px) {
   .page-hero { padding: 110px 1.25rem 60px; }
   .section { padding: 4rem 1.25rem; }
-  .service-card { padding: 1.5rem; }
+  .service-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
   .contact-form { padding: 1.5rem; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: repeat(2, 1fr); }

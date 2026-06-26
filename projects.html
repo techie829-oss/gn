@@ -6,36 +6,189 @@
   <meta name="description" content="GN Management Services Projects – Collaborations with BSNL, Praptham Tech, Pace Digitek, Melco India. OFC execution, Tower erection, Industrial shed construction, Office interior projects." />
   <title>Projects | GN Management Services</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/output.css?v=1782281953441" />
+  <link rel="stylesheet" href="css/output.css?v=1782468579546" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style>
+    /* Continuous floating animation for the icon */
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    
+    /* Elegant text shimmer for the brand name */
+    @keyframes textShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animated-logo-icon {
+      position: relative;
+      animation: floatIcon 4s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(10, 31, 68, 0.15) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.05);
+      background: linear-gradient(135deg, #0A1F44, #1a365d) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      font-size: 1.25rem !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .nav-logo:hover .animated-logo-icon, .footer-logo:hover .animated-logo-icon {
+      animation-play-state: paused;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(247, 147, 30, 0.3) !important;
+      border-color: #F7931E;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(90deg, #F7931E, #FF9F1C) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      font-weight: 900;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      text-shadow: 0 2px 10px rgba(247, 147, 30, 0.15);
+    }
+    
+    .nav-logo:hover .brand-highlight, .footer-logo:hover .brand-highlight {
+      transform: scale(1.01);
+      filter: drop-shadow(0 2px 5px rgba(247, 147, 30, 0.4));
+    }
+    
+    .logo-name {
+      font-size: 1.45rem !important;
+      font-weight: 800 !important;
+      color: #0A1F44 !important;
+      letter-spacing: -0.02em;
+      transition: all 0.3s ease;
+      display: inline-block;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 0.68rem !important;
+      color: #6B7280 !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      margin-top: 2px;
+    }
+
+    /* Hero Slideshow Animation */
+    @keyframes heroSlideFade {
+      0% { opacity: 1; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1.03); }
+      33.33% { opacity: 0; transform: scale(1.05); }
+      91.66% { opacity: 0; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .hero-slide {
+      position: absolute;
+      inset: -5%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: heroSlideFade 18s infinite;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav id="navbar" role="navigation">
+<nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">GN</div>
-      <div class="logo-text"><div class="logo-name">GN Management Services</div><div class="logo-sub">Engineering · Infrastructure · Excellence</div></div>
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo" aria-label="GN Management Services Home">
+      <div class="logo-icon animated-logo-icon">GN</div>
+      <div class="logo-text">
+        <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
+        <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
+      </div>
     </a>
+
+    <!-- Desktop Nav -->
     <ul class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li>
+        <a href="about.html">About <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg></a>
+        <div class="dropdown-menu">
+          <a href="about.html#overview">🏢 Company Overview</a>
+          <a href="about.html#team">👥 Leadership Team</a>
+          <a href="about.html#mission">🎯 Mission & Vision</a>
+          <a href="about.html#certifications">🏆 Certifications</a>
+        </div>
+      </li>
+      <li>
+        <a href="services.html">Services <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid">
+            <a href="services.html#ofc" class="mega-menu-item">
+              <div class="mega-menu-icon">🌐</div>
+              <div><div class="mega-menu-label">OFC Laying & Execution</div><div class="mega-menu-desc">End-to-end fiber optic cable solutions</div></div>
+            </a>
+            <a href="services.html#tower" class="mega-menu-item">
+              <div class="mega-menu-icon">📡</div>
+              <div><div class="mega-menu-label">Tower Erection & Maintenance</div><div class="mega-menu-desc">RTP, RTT, lattice towers, 4G/5G</div></div>
+            </a>
+            <a href="services.html#solar" class="mega-menu-item">
+              <div class="mega-menu-icon">☀️</div>
+              <div><div class="mega-menu-label">Solar Power Installation</div><div class="mega-menu-desc">BSNL BTS site solar systems</div></div>
+            </a>
+            <a href="services.html#civil" class="mega-menu-item">
+              <div class="mega-menu-icon">🏗️</div>
+              <div><div class="mega-menu-label">Civil Infrastructure</div><div class="mega-menu-desc">Highway, road, bridge construction</div></div>
+            </a>
+            <a href="services.html#shed" class="mega-menu-item">
+              <div class="mega-menu-icon">🏭</div>
+              <div><div class="mega-menu-label">Industrial Shed & PEB</div><div class="mega-menu-desc">Warehouses, sheds, PEB structures</div></div>
+            </a>
+            <a href="services.html#highway" class="mega-menu-item">
+              <div class="mega-menu-icon">🛣️</div>
+              <div><div class="mega-menu-label">Highway Safety Works</div><div class="mega-menu-desc">Crash barriers, signage, road studs</div></div>
+            </a>
+            <a href="services.html#interior" class="mega-menu-item">
+              <div class="mega-menu-icon">🪑</div>
+              <div><div class="mega-menu-label">Office Interior Solutions</div><div class="mega-menu-desc">Modular workstations, turnkey offices</div></div>
+            </a>
+            <a href="services.html#design" class="mega-menu-item">
+              <div class="mega-menu-icon">📐</div>
+              <div><div class="mega-menu-label">Design Engineering</div><div class="mega-menu-desc">TLVA, PLVA, geo-technical surveys</div></div>
+            </a>
+            <a href="services.html#battery" class="mega-menu-item">
+              <div class="mega-menu-icon">🔋</div>
+              <div><div class="mega-menu-label">Battery Bank Systems</div><div class="mega-menu-desc">Power backup for tower poles</div></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="industries.html">Industries</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
+    <!-- CTA -->
     <div class="nav-cta">
-      <a href="tel:+919810737881" class="btn btn-outline" style="padding:0.6rem 1.25rem;font-size:0.8rem;">📞 +91-9810737881</a>
+      <a href="tel:+919810737881" class="btn btn-outline" style="padding:0.6rem 1.25rem;font-size:0.8rem;">
+        📞 +91-9810737881
+      </a>
       <a href="contact.html" class="btn btn-primary" style="padding:0.6rem 1.25rem;font-size:0.8rem;">Get A Quote</a>
     </div>
-    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+    <!-- Mobile Toggle -->
+    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-<div id="mobile-nav">
-  <div class="mobile-nav-link"><a href="index.html">Home</a></div>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="mobile-nav-link" onclick="toggleMobileSub(this)">
+    <a href="index.html">Home</a>
+  </div>
   <div class="mobile-nav-link"><a href="about.html">About Us</a></div>
   <div class="mobile-nav-link"><a href="services.html">Services</a></div>
   <div class="mobile-nav-link"><a href="projects.html">Projects</a></div>
@@ -56,7 +209,7 @@
 </section>
 
 <!-- FILTER TABS -->
-<section class="section" style="padding-bottom:0;">
+<section class="section bg-[#F8F9FA]" style="padding-bottom:0;">
   <div class="section-inner">
     <div class="tab-buttons">
       <button class="tab-btn active" onclick="filterProjects('all')">All Projects</button>
@@ -69,7 +222,7 @@
 </section>
 
 <!-- CURRENT COLLABORATIONS -->
-<section class="section">
+<section class="section bg-[#FFFFFF]">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
       <div class="section-label" style="justify-content:center;">Active Partnerships</div>
@@ -77,13 +230,13 @@
     </div>
 
     <!-- Praptham Tech -->
-    <div data-category="civil" style="background:var(--surface-2);border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in">
+    <div data-category="civil" style="background:#ffffff;border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';"">
       <div style="display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:280px;padding:2.5rem;border-right:1px solid var(--border);">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-            <div style="width:64px;height:64px;background:linear-gradient(135deg,rgba(249,115,22,0.2),rgba(13,32,69,0.6));border:1px solid rgba(249,115,22,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--accent);">PT</div>
+            <div style="width:64px;height:64px;background: rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--accent);">PT</div>
             <div>
-              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;">Praptham Tech Solution Pvt. Ltd.</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color: var(--gn-primary);">Praptham Tech Solution Pvt. Ltd.</div>
               <div style="font-size:0.75rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Active Partner · Bangalore, India</div>
             </div>
           </div>
@@ -119,13 +272,13 @@
     </div>
 
     <!-- Pace Digitek -->
-    <div data-category="telecom" style="background:var(--surface-2);border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in animate-delay-1">
+    <div data-category="telecom" style="background:#ffffff;border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';" animate-delay-1">
       <div style="display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:280px;padding:2.5rem;border-right:1px solid var(--border);">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-            <div style="width:64px;height:64px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(13,32,69,0.6));border:1px solid rgba(212,175,55,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--gold);">PD</div>
+            <div style="width:64px;height:64px;background: rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--gold);">PD</div>
             <div>
-              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;">Pace Digitek Ltd.</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color: var(--gn-primary);">Pace Digitek Ltd.</div>
               <div style="font-size:0.75rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Active Partner · Bengaluru · Est. 2003</div>
             </div>
           </div>
@@ -160,13 +313,13 @@
     </div>
 
     <!-- Melco India -->
-    <div data-category="civil" style="background:var(--surface-2);border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in animate-delay-2">
+    <div data-category="civil" style="background:#ffffff;border:1px solid var(--border);border-radius:24px;padding:0;overflow:hidden;margin-bottom:2rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';" animate-delay-2">
       <div style="display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:280px;padding:2.5rem;border-right:1px solid var(--border);">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-            <div style="width:64px;height:64px;background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(13,32,69,0.6));border:1px solid rgba(59,130,246,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#60a5fa;">MI</div>
+            <div style="width:64px;height:64px;background: rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#60a5fa;">MI</div>
             <div>
-              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;">Melco India Pvt. Ltd.</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color: var(--gn-primary);">Melco India Pvt. Ltd.</div>
               <div style="font-size:0.75rem;color:#60a5fa;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Active Partner · Engineering Excellence</div>
             </div>
           </div>
@@ -202,11 +355,11 @@
     </div>
 
     <!-- BSNL 4G -->
-    <div data-category="telecom" style="background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(13,32,69,0.95));border:1px solid rgba(249,115,22,0.25);border-radius:24px;padding:2.5rem;margin-bottom:2rem;" class="animate-in">
+    <div data-category="telecom" style="background: #FFFFFF; border:1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03);border-radius:24px;padding:2.5rem;margin-bottom:2rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';"">
       <div style="display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;">
-        <div style="width:80px;height:80px;background:linear-gradient(135deg,var(--accent),#c2410c);border-radius:20px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;flex-shrink:0;text-align:center;">BSNL<br/>4G</div>
+        <div style="width:80px;height:80px;background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #16a34a;border-radius:20px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color: #16a34a;flex-shrink:0;text-align:center;">BSNL<br/>4G</div>
         <div style="flex:1;min-width:200px;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">BSNL 4G Network Expansion Project</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.75rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">BSNL 4G Network Expansion Project</div>
           <div style="font-size:0.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Government of India · National Telecom Project</div>
           <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.75;margin-bottom:1.5rem;">GN Management Services is actively engaged in execution works related to the BSNL 4G Network Expansion Project, providing end-to-end tower erection, structural painting, foundation (civil) services, and solar power installation. Our role focuses on on-ground implementation of telecom infrastructure as per BSNL, TEC, and applicable Indian Standards.</p>
 
@@ -228,13 +381,13 @@
     </div>
 
     <!-- Sneha Trading Interior Project -->
-    <div data-category="interior" style="background:var(--surface-2);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:2rem;" class="animate-in animate-delay-1">
+    <div data-category="interior" style="background:#ffffff;border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:2rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';" animate-delay-1">
       <div style="display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:280px;padding:2.5rem;">
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-            <div style="width:64px;height:64px;background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(13,32,69,0.6));border:1px solid rgba(168,85,247,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#c084fc;">ST</div>
+            <div style="width:64px;height:64px;background: rgba(168,85,247,0.1); border:1px solid rgba(168,85,247,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#c084fc;">ST</div>
             <div>
-              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;">Sneha Trading Co.</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color: var(--gn-primary);">Sneha Trading Co.</div>
               <div style="font-size:0.75rem;color:#c084fc;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Office Interior Project · Faridabad</div>
             </div>
           </div>
@@ -249,9 +402,9 @@
             <span>📍</span> Faridabad Office, Haryana
           </div>
         </div>
-        <div style="background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(13,32,69,0.7));min-width:250px;padding:2.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+        <div style="background: rgba(168,85,247,0.05); border-left: 1px solid var(--border);min-width:250px;padding:2.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
           <div style="font-size:3.5rem;margin-bottom:1rem;">🪑</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Office Interior</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.25rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">Office Interior</div>
           <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;">Complete workspace transformation</div>
           <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.25);border-radius:50px;padding:6px 16px;font-size:0.8rem;font-weight:700;color:#c084fc;">
             ✅ Completed
@@ -262,51 +415,10 @@
   </div>
 </section>
 
-<!-- PROJECT STATS -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
-      <div class="section-label" style="justify-content:center;">Our Track Record</div>
-      <h2 class="section-title">Project <span>Statistics</span></h2>
-    </div>
 
-    <div class="stats-grid animate-in">
-      <div class="stat-card">
-        <div class="stat-icon">🌐</div>
-        <div class="stat-number"><span class="counter" data-target="50">0</span>K+</div>
-        <div class="stat-label">km OFC Executed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📡</div>
-        <div class="stat-number"><span class="counter" data-target="500">0</span>+</div>
-        <div class="stat-label">Towers Erected</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">☀️</div>
-        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
-        <div class="stat-label">Solar Sites Commissioned</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🏭</div>
-        <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
-        <div class="stat-label">Industrial Sheds Built</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🪑</div>
-        <div class="stat-number"><span class="counter" data-target="30">0</span>+</div>
-        <div class="stat-label">Office Interiors Done</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🤝</div>
-        <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
-        <div class="stat-label">Corporate Partners</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TARGETED CUSTOMERS -->
-<section class="section">
+<section class="section bg-[#FFFFFF]">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
       <div class="section-label" style="justify-content:center;">Targeted Clients</div>
@@ -327,13 +439,13 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-section section">
+<section class="cta-section section bg-[#F8F9FA]">
   <div class="section-inner" style="position:relative;z-index:1;text-align:center;">
-    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:1rem;">Start Your Project Today</h2>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;text-transform:uppercase;color: var(--gn-primary);margin-bottom:1rem;">Start Your Project Today</h2>
     <p style="color:rgba(255,255,255,0.85);max-width:500px;margin:0 auto 2rem;">Join our growing list of satisfied clients. Get a free consultation and project quote.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-lg" style="background:#fff;color:var(--accent);font-weight:700;">Get Free Quote</a>
-      <a href="tel:+919810737881" class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">📞 Call Now</a>
+      <a href="tel:+919810737881" class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,0.5);color: #fff;">📞 Call Now</a>
     </div>
   </div>
 </section>
@@ -342,14 +454,88 @@
 <footer>
   <div class="footer-top">
     <div class="footer-about">
-      <div class="nav-logo" style="margin-bottom:1rem;"><div class="logo-icon">GN</div><div class="logo-text"><div class="logo-name">GN Management Services</div><div class="logo-sub">Engineering · Infrastructure · Excellence</div></div></div>
-      <p>GN Management Services – Your trusted partner for integrated telecom and civil infrastructure across India.</p>
+      <div class="nav-logo" style="margin-bottom:1rem;">
+        <div class="logo-icon animated-logo-icon">GN</div>
+        <div class="logo-text">
+          <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
+          <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
+        </div>
+      </div>
+      <p>GN Management Services delivers integrated Telecom & Civil Infrastructure solutions across India. Founded in 2021, we specialize in OFC laying, tower erection, solar installation, civil construction, and office interiors.</p>
+      <div style="margin:1.25rem 0;">
+        <div style="font-size:0.78rem;color:#4B5563;margin-bottom:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Compliance</div>
+        <div class="footer-certifications">
+          <span class="cert-badge">ISI Certified</span>
+          <span class="cert-badge">TEC Standards</span>
+          <span class="cert-badge">ISO Quality</span>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://linkedin.com/company/gnmanagementservices" class="social-link" target="_blank" title="LinkedIn">in</a>
+        <a href="https://twitter.com/gnmanagement" class="social-link" target="_blank" title="X (Twitter)">X</a>
+        <a href="https://instagram.com/gnmanagementservices" class="social-link" target="_blank" title="Instagram">ig</a>
+        <a href="https://facebook.com/gnmanagementservices" class="social-link" target="_blank" title="Facebook">f</a>
+        <a href="mailto:info.gnms01@gmail.com" class="social-link" title="Email">@</a>
+      </div>
     </div>
-    <div><div class="footer-title">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><div class="footer-title">Services</div><ul class="footer-links"><li><a href="services.html#ofc">OFC Laying</a></li><li><a href="services.html#tower">Tower Erection</a></li><li><a href="services.html#solar">Solar Installation</a></li><li><a href="services.html#civil">Civil Infrastructure</a></li><li><a href="services.html#interior">Office Interior</a></li></ul></div>
-    <div><div class="footer-title">Contact</div><div style="font-size:0.825rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.75rem;"><div>📍 Plot No. 21, Railway Road, NIT-5, Faridabad 121001</div><div><a href="tel:+919810737881" style="color:var(--accent);">📞 +91-9810737881</a></div><div><a href="mailto:info.gnms01@gmail.com" style="color:var(--accent);">✉️ info.gnms01@gmail.com</a></div></div></div>
+
+    <div>
+      <div class="footer-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-title">Our Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html#ofc">OFC Laying & Execution</a></li>
+        <li><a href="services.html#tower">Tower Erection & Maintenance</a></li>
+        <li><a href="services.html#solar">Solar Power Installation</a></li>
+        <li><a href="services.html#civil">Civil Infrastructure</a></li>
+        <li><a href="services.html#shed">Industrial Shed / PEB</a></li>
+        <li><a href="services.html#highway">Highway Safety Works</a></li>
+        <li><a href="services.html#interior">Office Interior Solutions</a></li>
+        <li><a href="services.html#design">Design Engineering</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-title">Contact Info</div>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">📍 Head Office</div>
+          <div style="line-height:1.6;">Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana</div>
+        </div>
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">🏢 Branch Office</div>
+          <div style="line-height:1.6;">375, Beicharana, Satwari,<br/>Jammu 180003, J&K</div>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:+919810737881" style="color:#0A1F44;text-decoration:none;">+91-9810737881</a>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:01294001313" style="color:#0A1F44;text-decoration:none;">Tel: 0129-4001313</a>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          ✉️ <a href="mailto:info.gnms01@gmail.com" style="color:#F7931E;text-decoration:none;">info.gnms01@gmail.com</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom"><div>© 2025 GN Management Services. All Rights Reserved.</div><div>Committed to Quality | Safety | Timely Delivery</div></div>
+
+  <div class="footer-bottom">
+    <div>© 2025 GN Management Services. All Rights Reserved.</div>
+    <div style="display:flex;gap:1.5rem;">
+      <span>Committed to Quality | Safety | Timely Delivery</span>
+    </div>
+  </div>
 </footer>
 
 <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -366,6 +552,7 @@ let mobileOpen = false;
 mobileBtn.addEventListener('click', () => {
   mobileOpen = !mobileOpen;
   mobileNav.classList.toggle('open', mobileOpen);
+  document.body.classList.toggle('menu-open', mobileOpen);
   mobileBtn.setAttribute('aria-expanded', mobileOpen);
 });
 const observer = new IntersectionObserver((entries) => {

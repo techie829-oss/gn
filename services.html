@@ -6,39 +6,189 @@
   <meta name="description" content="GN Management Services – Complete range of services: OFC Laying, Tower Erection, Solar Installation, Civil Infrastructure, Industrial Sheds, Highway Safety, Office Interior, and Design Engineering." />
   <title>Services | GN Management Services</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/output.css?v=1782281953441" />
+  <link rel="stylesheet" href="css/output.css?v=1782468579546" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style>
+    /* Continuous floating animation for the icon */
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    
+    /* Elegant text shimmer for the brand name */
+    @keyframes textShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animated-logo-icon {
+      position: relative;
+      animation: floatIcon 4s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(10, 31, 68, 0.15) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.05);
+      background: linear-gradient(135deg, #0A1F44, #1a365d) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      font-size: 1.25rem !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .nav-logo:hover .animated-logo-icon, .footer-logo:hover .animated-logo-icon {
+      animation-play-state: paused;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(247, 147, 30, 0.3) !important;
+      border-color: #F7931E;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(90deg, #F7931E, #FF9F1C) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      font-weight: 900;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      text-shadow: 0 2px 10px rgba(247, 147, 30, 0.15);
+    }
+    
+    .nav-logo:hover .brand-highlight, .footer-logo:hover .brand-highlight {
+      transform: scale(1.01);
+      filter: drop-shadow(0 2px 5px rgba(247, 147, 30, 0.4));
+    }
+    
+    .logo-name {
+      font-size: 1.45rem !important;
+      font-weight: 800 !important;
+      color: #0A1F44 !important;
+      letter-spacing: -0.02em;
+      transition: all 0.3s ease;
+      display: inline-block;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 0.68rem !important;
+      color: #6B7280 !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      margin-top: 2px;
+    }
+
+    /* Hero Slideshow Animation */
+    @keyframes heroSlideFade {
+      0% { opacity: 1; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1.03); }
+      33.33% { opacity: 0; transform: scale(1.05); }
+      91.66% { opacity: 0; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .hero-slide {
+      position: absolute;
+      inset: -5%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: heroSlideFade 18s infinite;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav id="navbar" role="navigation">
+<nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon">GN</div>
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo" aria-label="GN Management Services Home">
+      <div class="logo-icon animated-logo-icon">GN</div>
       <div class="logo-text">
-        <div class="logo-name">GN Management Services</div>
-        <div class="logo-sub">Engineering · Infrastructure · Excellence</div>
+        <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
+        <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
       </div>
     </a>
+
+    <!-- Desktop Nav -->
     <ul class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li>
+        <a href="about.html">About <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg></a>
+        <div class="dropdown-menu">
+          <a href="about.html#overview">🏢 Company Overview</a>
+          <a href="about.html#team">👥 Leadership Team</a>
+          <a href="about.html#mission">🎯 Mission & Vision</a>
+          <a href="about.html#certifications">🏆 Certifications</a>
+        </div>
+      </li>
+      <li>
+        <a href="services.html">Services <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu-grid">
+            <a href="services.html#ofc" class="mega-menu-item">
+              <div class="mega-menu-icon">🌐</div>
+              <div><div class="mega-menu-label">OFC Laying & Execution</div><div class="mega-menu-desc">End-to-end fiber optic cable solutions</div></div>
+            </a>
+            <a href="services.html#tower" class="mega-menu-item">
+              <div class="mega-menu-icon">📡</div>
+              <div><div class="mega-menu-label">Tower Erection & Maintenance</div><div class="mega-menu-desc">RTP, RTT, lattice towers, 4G/5G</div></div>
+            </a>
+            <a href="services.html#solar" class="mega-menu-item">
+              <div class="mega-menu-icon">☀️</div>
+              <div><div class="mega-menu-label">Solar Power Installation</div><div class="mega-menu-desc">BSNL BTS site solar systems</div></div>
+            </a>
+            <a href="services.html#civil" class="mega-menu-item">
+              <div class="mega-menu-icon">🏗️</div>
+              <div><div class="mega-menu-label">Civil Infrastructure</div><div class="mega-menu-desc">Highway, road, bridge construction</div></div>
+            </a>
+            <a href="services.html#shed" class="mega-menu-item">
+              <div class="mega-menu-icon">🏭</div>
+              <div><div class="mega-menu-label">Industrial Shed & PEB</div><div class="mega-menu-desc">Warehouses, sheds, PEB structures</div></div>
+            </a>
+            <a href="services.html#highway" class="mega-menu-item">
+              <div class="mega-menu-icon">🛣️</div>
+              <div><div class="mega-menu-label">Highway Safety Works</div><div class="mega-menu-desc">Crash barriers, signage, road studs</div></div>
+            </a>
+            <a href="services.html#interior" class="mega-menu-item">
+              <div class="mega-menu-icon">🪑</div>
+              <div><div class="mega-menu-label">Office Interior Solutions</div><div class="mega-menu-desc">Modular workstations, turnkey offices</div></div>
+            </a>
+            <a href="services.html#design" class="mega-menu-item">
+              <div class="mega-menu-icon">📐</div>
+              <div><div class="mega-menu-label">Design Engineering</div><div class="mega-menu-desc">TLVA, PLVA, geo-technical surveys</div></div>
+            </a>
+            <a href="services.html#battery" class="mega-menu-item">
+              <div class="mega-menu-icon">🔋</div>
+              <div><div class="mega-menu-label">Battery Bank Systems</div><div class="mega-menu-desc">Power backup for tower poles</div></div>
+            </a>
+          </div>
+        </div>
+      </li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="industries.html">Industries</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
+    <!-- CTA -->
     <div class="nav-cta">
-      <a href="tel:+919810737881" class="btn btn-outline" style="padding:0.6rem 1.25rem;font-size:0.8rem;">📞 +91-9810737881</a>
+      <a href="tel:+919810737881" class="btn btn-outline" style="padding:0.6rem 1.25rem;font-size:0.8rem;">
+        📞 +91-9810737881
+      </a>
       <a href="contact.html" class="btn btn-primary" style="padding:0.6rem 1.25rem;font-size:0.8rem;">Get A Quote</a>
     </div>
-    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+    <!-- Mobile Toggle -->
+    <button id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-<div id="mobile-nav">
-  <div class="mobile-nav-link"><a href="index.html">Home</a></div>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="mobile-nav-link" onclick="toggleMobileSub(this)">
+    <a href="index.html">Home</a>
+  </div>
   <div class="mobile-nav-link"><a href="about.html">About Us</a></div>
   <div class="mobile-nav-link"><a href="services.html">Services</a></div>
   <div class="mobile-nav-link"><a href="projects.html">Projects</a></div>
@@ -78,9 +228,9 @@
 <section id="ofc" class="section section-alt">
   <div class="section-inner">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="animate-in">
+      <div class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;">
-          <div style="width:64px;height:64px;background:linear-gradient(135deg,var(--accent),#c2410c);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🌐</div>
+          <div style="width:64px;height:64px;background: rgba(249,115,22,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🌐</div>
           <div>
             <div class="section-label" style="margin-bottom:0;">Service 01</div>
             <h2 class="section-title" style="font-size:clamp(1.75rem,3vw,2.5rem);">OFC Laying & <span>Execution</span></h2>
@@ -95,46 +245,46 @@
 
         <div class="grid grid-cols-1 gap-3">
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;">
-            <div style="font-weight:700;color:#fff;margin-bottom:0.5rem;">📦 Installation</div>
+            <div style="font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">📦 Installation</div>
             <div style="font-size:0.875rem;color:var(--text-secondary);">End-to-end solutions for underground & overhead OFC. Adherence to industry standards for durable installations.</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;">
-            <div style="font-weight:700;color:#fff;margin-bottom:0.5rem;">🔧 Maintenance & Repair</div>
+            <div style="font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">🔧 Maintenance & Repair</div>
             <div style="font-size:0.875rem;color:var(--text-secondary);">Routine maintenance to minimize downtime, optimize network performance, and quick-response repair services.</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;">
-            <div style="font-weight:700;color:#fff;margin-bottom:0.5rem;">💡 Network Design & Consultation</div>
+            <div style="font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">💡 Network Design & Consultation</div>
             <div style="font-size:0.875rem;color:var(--text-secondary);">Expert guidance on designing efficient fiber optic networks. Tailored solutions for specific client requirements.</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;">
-            <div style="font-weight:700;color:#fff;margin-bottom:0.5rem;">✅ Testing & Commissioning</div>
+            <div style="font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">✅ Testing & Commissioning</div>
             <div style="font-size:0.875rem;color:var(--text-secondary);">Comprehensive testing of fiber optic systems to ensure optimal functionality. Quick commissioning to get networks operational.</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;">
-            <div style="font-weight:700;color:#fff;margin-bottom:0.5rem;">📈 Upgrades & Expansions</div>
+            <div style="font-weight:700;color: var(--gn-primary);margin-bottom:0.5rem;">📈 Upgrades & Expansions</div>
             <div style="font-size:0.875rem;color:var(--text-secondary);">Enhancing existing networks to meet technological advancements. Scaling infrastructure to support growing user demand.</div>
           </div>
         </div>
       </div>
-      <div class="animate-in animate-delay-2">
-        <div style="background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(13,32,69,0.8));border:1px solid var(--border);border-radius:24px;padding:2.5rem;">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:2rem;">50,000 <span style="color:var(--accent);">KM+</span><br/>OFC Executed</div>
+      <div class="animate-in animate-delay-2 card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        <div style="background: rgba(249,115,22,0.1), url('https://images.unsplash.com/photo-1541888081682-1262d49a37e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;border:1px solid var(--border);border-radius:24px;padding:2.5rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;text-transform:uppercase;color: var(--gn-primary);line-height:1;margin-bottom:2rem;">50,000 <span style="color:var(--accent);">KM+</span><br/>OFC Executed</div>
           <div style="display:flex;flex-direction:column;gap:1rem;">
             <div style="display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;">
               <span style="color:var(--text-secondary);">Routes Covered</span>
-              <span style="color:#fff;font-weight:600;">NLD + Intracity</span>
+              <span style="color: var(--gn-primary);font-weight:600;">NLD + Intracity</span>
             </div>
             <div style="display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;">
               <span style="color:var(--text-secondary);">Coverage</span>
-              <span style="color:#fff;font-weight:600;">PAN India</span>
+              <span style="color: var(--gn-primary);font-weight:600;">PAN India</span>
             </div>
             <div style="display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;">
               <span style="color:var(--text-secondary);">Underground Cabling</span>
-              <span style="color:#fff;font-weight:600;">✓ Available</span>
+              <span style="color: var(--gn-primary);font-weight:600;">✓ Available</span>
             </div>
             <div style="display:flex;justify-content:space-between;padding:1rem 0;font-size:0.9rem;">
               <span style="color:var(--text-secondary);">Overhead Cabling</span>
-              <span style="color:#fff;font-weight:600;">✓ Available</span>
+              <span style="color: var(--gn-primary);font-weight:600;">✓ Available</span>
             </div>
           </div>
           <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;">Get OFC Quote</a>
@@ -159,56 +309,56 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       <!-- RTP -->
-      <div class="service-card animate-in">
-        <div class="service-icon">📡</div>
-        <div class="service-title">Roof Top Pole (RTP)</div>
-        <p class="service-desc">Steel supporting structures specially designed for mounting height and antenna load requirements of communication systems. Non-conductive, lightweight, safer choice for installations.</p>
-        <ul style="margin-top:1rem;list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Platform foundation & battery bank</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Full accessories included</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Powder coated support angels</li>
+      <div class="animate-in" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">📡</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Roof Top Pole (RTP)</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Steel supporting structures specially designed for mounting height and antenna load requirements of communication systems. Non-conductive, lightweight, safer choice for installations.</p>
+        <ul style="margin-top:1.5rem;list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Platform foundation & battery bank</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Full accessories included</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Powder coated support angels</li>
         </ul>
       </div>
 
       <!-- RTT -->
-      <div class="service-card animate-in animate-delay-1">
-        <div class="service-icon">🗼</div>
-        <div class="service-title">Roof Top Tower (RTT)</div>
-        <p class="service-desc">Galvanized mobile towers placed on terraces of high-rise buildings for urban areas. Manufactured, supplied, and erected for leading mobile service providers and telecom infrastructure companies.</p>
-        <ul style="margin-top:1rem;list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> High-rise building installation</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Urban area deployment</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Galvanized steel construction</li>
+      <div class="animate-in animate-delay-1" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🗼</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Roof Top Tower (RTT)</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Galvanized mobile towers placed on terraces of high-rise buildings for urban areas. Manufactured, supplied, and erected for leading mobile service providers and telecom infrastructure companies.</p>
+        <ul style="margin-top:1.5rem;list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> High-rise building installation</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Urban area deployment</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Galvanized steel construction</li>
         </ul>
       </div>
 
       <!-- GSM/4G Lattice -->
-      <div class="service-card animate-in animate-delay-2">
-        <div class="service-icon">📶</div>
-        <div class="service-title">GSM/4G Lattice Towers</div>
-        <p class="service-desc">End-to-end tower erection for BSNL 4G Network Expansion Project. Alignment, leveling, verticality checks, antenna mount installation, and strict BSNL/TEC specification compliance.</p>
-        <ul style="margin-top:1rem;list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Certified lifting tools & safety gear</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> BSNL & TEC specification compliant</li>
-          <li style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">▸</span> Full alignment & leveling checks</li>
+      <div class="animate-in animate-delay-2" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">📶</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">GSM/4G Lattice Towers</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">End-to-end tower erection for BSNL 4G Network Expansion Project. Alignment, leveling, verticality checks, antenna mount installation, and strict BSNL/TEC specification compliance.</p>
+        <ul style="margin-top:1.5rem;list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Certified lifting tools & safety gear</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> BSNL & TEC specification compliant</li>
+          <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:10px;"><span style="color:var(--accent);font-size:1.2rem;">▸</span> Full alignment & leveling checks</li>
         </ul>
       </div>
     </div>
 
     <!-- Tower detailed services -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in">
+      <div style="background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div style="font-size:1.75rem;margin-bottom:1rem;">🎨</div>
-        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.75rem;">Tower Painting Works</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.75rem;">Tower Painting Works</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Surface prep: cleaning, rust removal, primer</li>
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Anti-corrosive epoxy/enamel paint application</li>
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Long-life corrosion protection for harsh environments</li>
         </ul>
       </div>
-      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in animate-delay-1">
+      <div style="background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in animate-delay-1">
         <div style="font-size:1.75rem;margin-bottom:1rem;">🏗️</div>
-        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.75rem;">Foundation & Civil Works</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.75rem;">Foundation & Civil Works</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Excavation for tower foundations</li>
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> PCC & RCC foundation works (approved drawings)</li>
@@ -216,9 +366,9 @@
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Backfilling, curing, finishing, plinth protection</li>
         </ul>
       </div>
-      <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in animate-delay-2">
+      <div style="background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:1.75rem;" class="animate-in animate-delay-2 card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div style="font-size:1.75rem;margin-bottom:1rem;">⚙️</div>
-        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.75rem;">GBM Installation</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.75rem;">GBM Installation</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Earth excavation, raft & foundation casting</li>
           <li style="font-size:0.85rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> GBM erection & installation, template setting</li>
@@ -234,26 +384,26 @@
 <section id="solar" class="section section-alt">
   <div class="section-inner">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="animate-in animate-delay-2">
-        <div style="background:linear-gradient(135deg,rgba(234,179,8,0.1),rgba(13,32,69,0.8));border:1px solid rgba(234,179,8,0.2);border-radius:24px;padding:3rem;text-align:center;">
+      <div class="animate-in animate-delay-2 card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        <div style="background: rgba(249,115,22,0.1), url('https://images.unsplash.com/photo-1541888081682-1262d49a37e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;border:1px solid rgba(234,179,8,0.2);border-radius:24px;padding:3rem;text-align:center;">
           <div style="font-size:5rem;margin-bottom:1.5rem;">☀️</div>
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:#fff;text-transform:uppercase;">BSNL Solar<br/><span style="color:#fbbf24;">BTS Sites</span></div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color: var(--gn-primary);text-transform:uppercase;">BSNL Solar<br/><span style="color:#fbbf24;">BTS Sites</span></div>
           <p style="color:var(--text-secondary);font-size:0.9rem;margin-top:1rem;line-height:1.7;">Installation & Commissioning of Solar Power Systems at BSNL Telecom / 4G BTS Sites</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;">
-            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:1rem;">
+            <div style="background: var(--gn-bg);border-radius:10px;padding:1rem;">
               <div style="font-size:1.5rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:#fbbf24;">150+</div>
               <div style="font-size:0.72rem;color:var(--text-secondary);">Sites Commissioned</div>
             </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:1rem;">
+            <div style="background: var(--gn-bg);border-radius:10px;padding:1rem;">
               <div style="font-size:1.5rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:#fbbf24;">100%</div>
               <div style="font-size:0.72rem;color:var(--text-secondary);">Quality Tested</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="animate-in">
+      <div class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;">
-          <div style="width:64px;height:64px;background:linear-gradient(135deg,#eab308,#a16207);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:2rem;">☀️</div>
+          <div style="width:64px;height:64px;background: rgba(249,115,22,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:2rem;">☀️</div>
           <div>
             <div class="section-label" style="margin-bottom:0;">Service 03</div>
             <h2 class="section-title" style="font-size:clamp(1.75rem,3vw,2.5rem);">Solar Power <span>Installation</span></h2>
@@ -265,27 +415,27 @@
         <div style="display:flex;flex-direction:column;gap:0.75rem;">
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">🔲</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Installation of Solar PV Modules on approved mounting structures</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Installation of Solar PV Modules on approved mounting structures</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">📐</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Fixing & alignment of module mounting frames</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Fixing & alignment of module mounting frames</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">🔋</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Installation & connection of Battery Banks</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Installation & connection of Battery Banks</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">⚡</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Earthing & lightning protection connections</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Earthing & lightning protection connections</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">🔌</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Integration with existing DG / Grid / Power Plant</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Integration with existing DG / Grid / Power Plant</div>
           </div>
           <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15);border-radius:10px;">
             <span style="font-size:1.25rem;">🧪</span>
-            <div style="font-size:0.875rem;color:#e2e8f0;">Testing, commissioning & DC cabling, dressing & termination</div>
+            <div style="font-size:0.875rem;color:var(--gn-primary);">Testing, commissioning & DC cabling, dressing & termination</div>
           </div>
         </div>
       </div>
@@ -330,7 +480,7 @@
 <section id="shed" class="section section-alt">
   <div class="section-inner">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <div class="animate-in">
+      <div class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div class="section-label">Service 05</div>
         <h2 class="section-title mb-6">Industrial Shed & <span>PEB Construction</span></h2>
         <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:2rem;">
@@ -340,24 +490,24 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.5rem;">🏭</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Industrial & Manufacturing Units</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Industrial & Manufacturing Units</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.5rem;">📦</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Warehouse & Logistics Sheds</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Warehouse & Logistics Sheds</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.5rem;">🌾</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Agricultural Storage Sheds</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Agricultural Storage Sheds</div>
           </div>
           <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:12px;padding:1.25rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.5rem;">🚗</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Parking & Vehicle Sheds</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Parking & Vehicle Sheds</div>
           </div>
         </div>
 
-        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;">Pre-Engineered Buildings (PEB)</div>
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color: var(--gn-primary);margin-bottom:1rem;">Pre-Engineered Buildings (PEB)</div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
             <li style="font-size:0.875rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Design, fabrication, and erection of steel structures</li>
             <li style="font-size:0.875rem;color:var(--text-secondary);display:flex;gap:8px;"><span style="color:var(--accent);">▸</span> Customized solutions with faster project delivery</li>
@@ -367,16 +517,16 @@
         </div>
       </div>
 
-      <div class="animate-in animate-delay-2">
-        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;">
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1.25rem;">Quality Materials We Use</div>
+      <div class="animate-in animate-delay-2 card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;color: var(--gn-primary);margin-bottom:1.25rem;">Quality Materials We Use</div>
           <div style="display:flex;flex-direction:column;gap:0.75rem;">
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🔩</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Steel:</strong> ISI certified MS, ISMB, ISMC, H-Beams, C/Z purlins</div></div>
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🏗️</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Roofing:</strong> PPGI / Colour Coated Sheets with anti-corrosive coating</div></div>
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>⚙️</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Fasteners:</strong> High-tensile bolts & nuts (Hilti, Fisherman make)</div></div>
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🎨</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Paints:</strong> Anti-rust & weather-resistant industrial-grade paints</div></div>
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🪨</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Flooring:</strong> High-quality cement, aggregates, admixtures for RCC</div></div>
-            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🧱</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:#e2e8f0;">Cladding:</strong> GI sheets, sandwich panels, PUF panels</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🔩</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Steel:</strong> ISI certified MS, ISMB, ISMC, H-Beams, C/Z purlins</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🏗️</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Roofing:</strong> PPGI / Colour Coated Sheets with anti-corrosive coating</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>⚙️</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Fasteners:</strong> High-tensile bolts & nuts (Hilti, Fisherman make)</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🎨</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Paints:</strong> Anti-rust & weather-resistant industrial-grade paints</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🪨</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Flooring:</strong> High-quality cement, aggregates, admixtures for RCC</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span>🧱</span><div style="font-size:0.875rem;color:var(--text-secondary);"><strong style="color:var(--gn-primary);">Cladding:</strong> GI sheets, sandwich panels, PUF panels</div></div>
           </div>
         </div>
         <a href="contact.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Get Industrial Shed Quote</a>
@@ -395,35 +545,41 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="service-card animate-in">
-        <div class="service-icon">🔘</div>
-        <div class="service-title">Road Stud Installation</div>
-        <p class="service-desc">Solar and reflective road stud installation with proper alignment and fixing for enhanced road visibility and safety at night.</p>
+      <!-- 1 -->
+      <div class="animate-in" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🔘</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Road Stud Installation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Solar and reflective road stud installation with proper alignment and fixing for enhanced road visibility and safety at night.</p>
       </div>
-      <div class="service-card animate-in animate-delay-1">
-        <div class="service-icon">🚧</div>
-        <div class="service-title">Crash Barrier Installation</div>
-        <p class="service-desc">Metal Beam Crash Barriers (W-beam / Thrie-beam) with posts, spacers, and anchors for maximum vehicle impact protection.</p>
+      <!-- 2 -->
+      <div class="animate-in animate-delay-1" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🚧</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Crash Barrier Installation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Metal Beam Crash Barriers (W-beam / Thrie-beam) with posts, spacers, and anchors for maximum vehicle impact protection.</p>
       </div>
-      <div class="service-card animate-in animate-delay-2">
-        <div class="service-icon">🛡️</div>
-        <div class="service-title">Guard Rail Installation</div>
-        <p class="service-desc">Median, edge, and roadside safety barriers for comprehensive road boundary protection and pedestrian safety.</p>
+      <!-- 3 -->
+      <div class="animate-in animate-delay-2" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🛡️</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Guard Rail Installation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Median, edge, and roadside safety barriers for comprehensive road boundary protection and pedestrian safety.</p>
       </div>
-      <div class="service-card animate-in">
-        <div class="service-icon">🪧</div>
-        <div class="service-title">Signage Board Installation</div>
-        <p class="service-desc">Regulatory, cautionary, and informatory sign boards with posts and foundations as per traffic engineering standards.</p>
+      <!-- 4 -->
+      <div class="animate-in" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🪧</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Signage Board Installation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Regulatory, cautionary, and informatory sign boards with posts and foundations as per traffic engineering standards.</p>
       </div>
-      <div class="service-card animate-in animate-delay-1">
-        <div class="service-icon">😼</div>
-        <div class="service-title">Road Safety Works</div>
-        <p class="service-desc">Delineators, cat eyes, hazard markers, chevrons, and reflectors for comprehensive road safety and night-time visibility.</p>
+      <!-- 5 -->
+      <div class="animate-in animate-delay-1" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">😼</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Road Safety Works</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Delineators, cat eyes, hazard markers, chevrons, and reflectors for comprehensive road safety and night-time visibility.</p>
       </div>
-      <div class="service-card animate-in animate-delay-2">
-        <div class="service-icon">💡</div>
-        <div class="service-title">Street & High Mast Lighting</div>
-        <p class="service-desc">Street light pole erection, fixing, and commissioning support. High mast pole erection with fixtures and alignment for major intersections.</p>
+      <!-- 6 -->
+      <div class="animate-in animate-delay-2" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">💡</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Street & High Mast Lighting</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Street light pole erection, fixing, and commissioning support. High mast pole erection with fixtures and alignment for major intersections.</p>
       </div>
     </div>
   </div>
@@ -433,7 +589,7 @@
 <section id="interior" class="section section-alt">
   <div class="section-inner">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="animate-in">
+      <div class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div class="section-label">Service 07</div>
         <h2 class="section-title mb-6">Office Interior & <span>Workspace Solutions</span></h2>
         <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.5rem;">
@@ -446,46 +602,46 @@
         <!-- Featured Project -->
         <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.2);border-radius:14px;padding:1.5rem;margin-bottom:2rem;">
           <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">Featured Project</div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:0.25rem;">Sneha Trading Co. | Faridabad Office</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color: var(--gn-primary);margin-bottom:0.25rem;">Sneha Trading Co. | Faridabad Office</div>
           <div style="font-size:0.85rem;color:var(--text-secondary);">Complete interior works including open workspaces, modular workstations, and executive areas</div>
         </div>
       </div>
 
-      <div class="animate-in animate-delay-2">
+      <div class="animate-in animate-delay-2 card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
         <div class="grid grid-cols-2 gap-4">
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">🖥️</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Modular Workstations</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Modular Workstations</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Custom workstation design & installation</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">👔</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Executive Cabins</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Executive Cabins</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Premium executive office design</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Conference Rooms</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Conference Rooms</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Fully equipped meeting rooms</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">🏢</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Reception Areas</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Reception Areas</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Impressive corporate reception design</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">⬆️</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">False Ceilings</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">False Ceilings</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Designer false ceiling systems</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">⚡</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Electrical & Flooring</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Electrical & Flooring</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Complete MEP & flooring works</div>
           </div>
-          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;grid-column:span 2;">
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;grid-column:span 2;">
             <div style="font-size:2rem;margin-bottom:0.75rem;">🔑</div>
-            <div style="font-weight:700;color:#fff;font-size:0.9rem;">Turnkey Office Projects</div>
+            <div style="font-weight:700;color: var(--gn-primary);font-size:0.9rem;">Turnkey Office Projects</div>
             <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:0.35rem;">Complete end-to-end project delivery from concept to handover</div>
           </div>
         </div>
@@ -504,44 +660,50 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="service-card animate-in">
-        <div class="service-icon">📊</div>
-        <div class="service-title">Design Evaluation</div>
-        <p class="service-desc">Design evaluation of new built sites and reverse engineering analysis of existing towers for structural integrity assessment.</p>
+      <!-- 1 -->
+      <div class="animate-in" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">📊</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Design Evaluation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Design evaluation of new built sites and reverse engineering analysis of existing towers for structural integrity assessment.</p>
       </div>
-      <div class="service-card animate-in animate-delay-1">
-        <div class="service-icon">⚖️</div>
-        <div class="service-title">Tower Loading Validation (TLVA)</div>
-        <p class="service-desc">Tower Loading Validation Activity and Pole Loading Validation Activity (PLVA) of existing towers ensuring compliance with load requirements.</p>
+      <!-- 2 -->
+      <div class="animate-in animate-delay-1" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">⚖️</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Tower Loading Validation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Tower Loading Validation Activity and Pole Loading Validation Activity (PLVA) of existing towers ensuring compliance.</p>
       </div>
-      <div class="service-card animate-in animate-delay-2">
-        <div class="service-icon">🔍</div>
-        <div class="service-title">Geo-Technical Investigation</div>
-        <p class="service-desc">Comprehensive soil test reports and geo-technical investigations to determine ground conditions for foundation design.</p>
+      <!-- 3 -->
+      <div class="animate-in animate-delay-2" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🔍</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Geo-Technical Investigation</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Comprehensive soil test reports and geo-technical investigations to determine ground conditions for foundation design.</p>
       </div>
-      <div class="service-card animate-in">
-        <div class="service-icon">📐</div>
-        <div class="service-title">Tower Design</div>
-        <p class="service-desc">Tower design for different antenna loadings and detailed structural drawings as per local and international standards.</p>
+      <!-- 4 -->
+      <div class="animate-in" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">📐</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Tower Design</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Tower design for different antenna loadings and detailed structural drawings as per local and international standards.</p>
       </div>
-      <div class="service-card animate-in animate-delay-1">
-        <div class="service-icon">🏗️</div>
-        <div class="service-title">Foundation Design</div>
-        <p class="service-desc">Foundation designs for towers of various types and configurations based on soil conditions and structural requirements.</p>
+      <!-- 5 -->
+      <div class="animate-in animate-delay-1" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">🏗️</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Foundation Design</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Foundation designs for towers of various types and configurations based on soil conditions and structural requirements.</p>
       </div>
-      <div class="service-card animate-in animate-delay-2">
-        <div class="service-icon">✅</div>
-        <div class="service-title">Pre-Dispatch Inspection</div>
-        <p class="service-desc">Prototype check and pre-dispatch inspection activities to ensure quality before deployment to project sites.</p>
+      <!-- 6 -->
+      <div class="animate-in animate-delay-2" style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.03);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.03)';">
+        <div style="width:64px;height:64px;background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.5rem;">✅</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gn-primary);margin-bottom:0.75rem;">Pre-Dispatch Inspection</div>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">Prototype check and pre-dispatch inspection activities to ensure quality before deployment to project sites.</p>
       </div>
     </div>
 
     <!-- Battery Bank Section -->
-    <div style="margin-top:4rem;background:var(--surface-2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;" class="animate-in" id="battery">
+    <div style="margin-top:4rem;background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;" class="animate-in card-hover" style="transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';" id="battery">
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
-        <div style="width:56px;height:56px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;">🔋</div>
+        <div style="width:56px;height:56px;background: rgba(249,115,22,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;">🔋</div>
         <div>
-          <div style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;">Battery Bank Systems</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color: var(--gn-primary);">Battery Bank Systems</div>
           <div style="font-size:0.8rem;color:var(--text-secondary);">Power backup solutions for tower poles and BTS sites</div>
         </div>
       </div>
@@ -549,19 +711,19 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div style="text-align:center;padding:1rem;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);border-radius:10px;">
           <div style="font-size:1.5rem;margin-bottom:0.5rem;">⚡</div>
-          <div style="font-size:0.8rem;font-weight:600;color:#e2e8f0;">SMPS Installation</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--gn-primary);">SMPS Installation</div>
         </div>
         <div style="text-align:center;padding:1rem;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);border-radius:10px;">
           <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔌</div>
-          <div style="font-size:0.8rem;font-weight:600;color:#e2e8f0;">Earthing Systems</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--gn-primary);">Earthing Systems</div>
         </div>
         <div style="text-align:center;padding:1rem;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);border-radius:10px;">
           <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔋</div>
-          <div style="font-size:0.8rem;font-weight:600;color:#e2e8f0;">Battery Banks</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--gn-primary);">Battery Banks</div>
         </div>
         <div style="text-align:center;padding:1rem;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);border-radius:10px;">
           <div style="font-size:1.5rem;margin-bottom:0.5rem;">☀️</div>
-          <div style="font-size:0.8rem;font-weight:600;color:#e2e8f0;">Solar Integration</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--gn-primary);">Solar Integration</div>
         </div>
       </div>
     </div>
@@ -569,13 +731,13 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-section section">
+<section class="cta-section section bg-[#F8F9FA]">
   <div class="section-inner" style="position:relative;z-index:1;text-align:center;">
-    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:1rem;">Discuss Your Project With Us</h2>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;text-transform:uppercase;color: var(--gn-primary);margin-bottom:1rem;">Discuss Your Project With Us</h2>
     <p style="color:rgba(255,255,255,0.85);max-width:500px;margin:0 auto 2rem;font-size:0.95rem;">Get a free consultation and customized quote for any of our 8 service verticals.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-lg" style="background:#fff;color:var(--accent);font-weight:700;">Get Free Quote</a>
-      <a href="tel:+919810737881" class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">📞 Call Now</a>
+      <a href="tel:+919810737881" class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,0.5);color: #fff;">📞 Call Now</a>
     </div>
   </div>
 </section>
@@ -584,15 +746,88 @@
 <footer>
   <div class="footer-top">
     <div class="footer-about">
-      <div class="nav-logo" style="margin-bottom:1rem;"><div class="logo-icon">GN</div><div class="logo-text"><div class="logo-name">GN Management Services</div><div class="logo-sub">Engineering · Infrastructure · Excellence</div></div></div>
-      <p>Integrated Telecom & Civil Infrastructure Solutions across India. Founded 2021, Faridabad.</p>
-      <div style="margin:1rem 0;"><div class="footer-certifications"><span class="cert-badge">ISI Certified</span><span class="cert-badge">BSNL Compliant</span><span class="cert-badge">TEC Standards</span></div></div>
+      <div class="nav-logo" style="margin-bottom:1rem;">
+        <div class="logo-icon animated-logo-icon">GN</div>
+        <div class="logo-text">
+          <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
+          <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
+        </div>
+      </div>
+      <p>GN Management Services delivers integrated Telecom & Civil Infrastructure solutions across India. Founded in 2021, we specialize in OFC laying, tower erection, solar installation, civil construction, and office interiors.</p>
+      <div style="margin:1.25rem 0;">
+        <div style="font-size:0.78rem;color:#4B5563;margin-bottom:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Compliance</div>
+        <div class="footer-certifications">
+          <span class="cert-badge">ISI Certified</span>
+          <span class="cert-badge">TEC Standards</span>
+          <span class="cert-badge">ISO Quality</span>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://linkedin.com/company/gnmanagementservices" class="social-link" target="_blank" title="LinkedIn">in</a>
+        <a href="https://twitter.com/gnmanagement" class="social-link" target="_blank" title="X (Twitter)">X</a>
+        <a href="https://instagram.com/gnmanagementservices" class="social-link" target="_blank" title="Instagram">ig</a>
+        <a href="https://facebook.com/gnmanagementservices" class="social-link" target="_blank" title="Facebook">f</a>
+        <a href="mailto:info.gnms01@gmail.com" class="social-link" title="Email">@</a>
+      </div>
     </div>
-    <div><div class="footer-title">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><div class="footer-title">Services</div><ul class="footer-links"><li><a href="#ofc">OFC Laying</a></li><li><a href="#tower">Tower Erection</a></li><li><a href="#solar">Solar Installation</a></li><li><a href="#civil">Civil Infrastructure</a></li><li><a href="#shed">Industrial Shed</a></li><li><a href="#highway">Highway Safety</a></li><li><a href="#interior">Office Interior</a></li><li><a href="#design">Design Engineering</a></li></ul></div>
-    <div><div class="footer-title">Contact</div><div style="font-size:0.825rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.75rem;"><div>📍 Plot No. 21, Railway Road, NIT-5, Faridabad 121001</div><div><a href="tel:+919810737881" style="color:var(--accent);">📞 +91-9810737881</a></div><div><a href="mailto:info.gnms01@gmail.com" style="color:var(--accent);">✉️ info.gnms01@gmail.com</a></div></div></div>
+
+    <div>
+      <div class="footer-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-title">Our Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html#ofc">OFC Laying & Execution</a></li>
+        <li><a href="services.html#tower">Tower Erection & Maintenance</a></li>
+        <li><a href="services.html#solar">Solar Power Installation</a></li>
+        <li><a href="services.html#civil">Civil Infrastructure</a></li>
+        <li><a href="services.html#shed">Industrial Shed / PEB</a></li>
+        <li><a href="services.html#highway">Highway Safety Works</a></li>
+        <li><a href="services.html#interior">Office Interior Solutions</a></li>
+        <li><a href="services.html#design">Design Engineering</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-title">Contact Info</div>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">📍 Head Office</div>
+          <div style="line-height:1.6;">Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana</div>
+        </div>
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">🏢 Branch Office</div>
+          <div style="line-height:1.6;">375, Beicharana, Satwari,<br/>Jammu 180003, J&K</div>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:+919810737881" style="color:#0A1F44;text-decoration:none;">+91-9810737881</a>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:01294001313" style="color:#0A1F44;text-decoration:none;">Tel: 0129-4001313</a>
+        </div>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          ✉️ <a href="mailto:info.gnms01@gmail.com" style="color:#F7931E;text-decoration:none;">info.gnms01@gmail.com</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom"><div>© 2025 GN Management Services. All Rights Reserved.</div><div>Committed to Quality | Safety | Timely Delivery</div></div>
+
+  <div class="footer-bottom">
+    <div>© 2025 GN Management Services. All Rights Reserved.</div>
+    <div style="display:flex;gap:1.5rem;">
+      <span>Committed to Quality | Safety | Timely Delivery</span>
+    </div>
+  </div>
 </footer>
 
 <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -609,6 +844,7 @@ let mobileOpen = false;
 mobileBtn.addEventListener('click', () => {
   mobileOpen = !mobileOpen;
   mobileNav.classList.toggle('open', mobileOpen);
+  document.body.classList.toggle('menu-open', mobileOpen);
   mobileBtn.setAttribute('aria-expanded', mobileOpen);
 });
 const observer = new IntersectionObserver((entries) => {

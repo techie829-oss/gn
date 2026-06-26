@@ -27,6 +27,91 @@
   <link rel="stylesheet" href="css/output.css?v=1782281953441" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    /* Continuous floating animation for the icon */
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    
+    /* Elegant text shimmer for the brand name */
+    @keyframes textShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animated-logo-icon {
+      position: relative;
+      animation: floatIcon 4s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(10, 31, 68, 0.15) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.05);
+      background: linear-gradient(135deg, #0A1F44, #1a365d) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      font-size: 1.25rem !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .nav-logo:hover .animated-logo-icon, .footer-logo:hover .animated-logo-icon {
+      animation-play-state: paused;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(247, 147, 30, 0.3) !important;
+      border-color: #F7931E;
+    }
+
+    .brand-highlight {
+      background: linear-gradient(90deg, #F7931E, #FF9F1C) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      font-weight: 900;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      text-shadow: 0 2px 10px rgba(247, 147, 30, 0.15);
+    }
+    
+    .nav-logo:hover .brand-highlight, .footer-logo:hover .brand-highlight {
+      transform: scale(1.01);
+      filter: drop-shadow(0 2px 5px rgba(247, 147, 30, 0.4));
+    }
+    
+    .logo-name {
+      font-size: 1.45rem !important;
+      font-weight: 800 !important;
+      color: #0A1F44 !important;
+      letter-spacing: -0.02em;
+      transition: all 0.3s ease;
+      display: inline-block;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 0.68rem !important;
+      color: #6B7280 !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      margin-top: 2px;
+    }
+
+    /* Hero Slideshow Animation */
+    @keyframes heroSlideFade {
+      0% { opacity: 1; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1.03); }
+      33.33% { opacity: 0; transform: scale(1.05); }
+      91.66% { opacity: 0; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .hero-slide {
+      position: absolute;
+      inset: -5%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: heroSlideFade 18s infinite;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -35,9 +120,9 @@
   <div class="nav-inner">
     <!-- Logo -->
     <a href="index.html" class="nav-logo" aria-label="GN Management Services Home">
-      <div class="logo-icon">GN</div>
+      <div class="logo-icon animated-logo-icon">GN</div>
       <div class="logo-text">
-        <div class="logo-name">GN Management Services</div>
+        <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
         <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
       </div>
     </a>
@@ -153,109 +238,122 @@
 </div>
 
 <!-- ==================== HERO ==================== -->
-<section id="hero" aria-label="Hero section">
-  <div class="hero-bg">
+<section id="hero" aria-label="Hero section" style="position:relative; min-height:100vh; display:flex; align-items:center; padding-top:120px; padding-bottom:120px; overflow:hidden; z-index:1; background-color:#0A1F44;">
+  <!-- Animated Background Slideshow -->
+  <div class="hero-slideshow" style="position:absolute; inset:0; z-index:0; overflow:hidden; background-color:#0A1F44;">
+    <!-- Slide 1: Construction/Civil -->
+    <div class="hero-slide" style="background-image: url('images/organized/construction/pdf_033.webp'); animation-delay: 0s;"></div>
+    <!-- Slide 2: Site Work -->
+    <div class="hero-slide" style="background-image: url('images/organized/construction/pdf_030.webp'); animation-delay: 6s;"></div>
+    <!-- Slide 3: Interior Fit-out -->
+    <div class="hero-slide" style="background-image: url('images/organized/interior/pdf_044.webp'); animation-delay: 12s;"></div>
+
+    <!-- Gradient Overlay to ensure text readability -->
+    <div class="slide-overlay" style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(10,31,68,0.85) 0%, rgba(18,60,115,0.7) 100%); z-index:1;"></div>
     
-    <div class="hero-grid"></div>
+    <!-- Grid Pattern -->
+    <div class="hero-grid" style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size:32px 32px; opacity:0.4; z-index:2;"></div>
   </div>
 
-  <div class="hero-content">
+  <div class="hero-content" style="position:relative; z-index:2; width:100%; max-width:1440px; margin:0 auto; padding:0 2rem;">
     <div style="max-width:850px;">
-      <div class="hero-badge animate-in">
-        <span class="dot"></span>
+      <div class="hero-badge animate-in" style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(247, 147, 30, 0.15); border:1px solid rgba(247, 147, 30, 0.3); padding:0.5rem 1.2rem; border-radius:50px; color:#F7931E; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; margin-bottom:1.5rem; backdrop-filter: blur(4px);">
+        <span class="dot" style="width:8px; height:8px; background-color:#F7931E; border-radius:50%; display:inline-block; box-shadow: 0 0 10px rgba(247,147,30,0.8);"></span>
         Trusted Since 2021 · Faridabad, Haryana
       </div>
 
-      <h1 class="hero-title animate-in animate-delay-1">
-        Engineering <span class="line-accent">Connectivity.</span><br/>
-        Building <span style="color:var(--gold);">Infrastructure.</span>
+      <h1 class="hero-title animate-in animate-delay-1" style="font-family:'Outfit', sans-serif; font-size:clamp(2rem, 4.5vw, 3.5rem) !important; font-weight:800; color:#FFFFFF; line-height:1.1; margin-bottom:1.5rem;">
+        Engineering <span class="line-accent" style="color:#F7931E;">Connectivity.</span><br/>
+        Building <span style="color:#F7931E;">Infrastructure.</span>
       </h1>
 
-      <p class="hero-desc animate-in animate-delay-2">
+      <p class="hero-desc animate-in animate-delay-2" style="font-size:clamp(1.1rem, 2vw, 1.3rem); color:rgba(255,255,255,0.85); line-height:1.6; margin-bottom:2.5rem; max-width:700px; font-weight:400;">
         GN Management Services delivers integrated Telecom & Civil Infrastructure solutions across India — from OFC laying and tower erection to solar installation, industrial construction, and premium office interiors.
       </p>
 
-      <div class="hero-stats animate-in animate-delay-3">
+      <div class="hero-stats animate-in animate-delay-3" style="display:flex; flex-wrap:wrap; gap:3rem; margin-bottom:3rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(255,255,255,0.15);">
         <div class="hero-stat">
-          <div class="num"><span id="hero-counter-1">0</span>K+</div>
-          <div class="label">KM OFC Executed</div>
+          <div class="num" style="font-family:'Outfit', sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF;"><span id="hero-counter-1">50</span>K+</div>
+          <div class="label" style="font-size:0.85rem; color:#F7931E; text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">KM OFC Executed</div>
         </div>
         <div class="hero-stat">
-          <div class="num"><span id="hero-counter-2">0</span>+</div>
-          <div class="label">Skilled Professionals</div>
+          <div class="num" style="font-family:'Outfit', sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF;"><span id="hero-counter-2">100</span>+</div>
+          <div class="label" style="font-size:0.85rem; color:#F7931E; text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Skilled Professionals</div>
         </div>
         <div class="hero-stat">
-          <div class="num"><span id="hero-counter-3">0</span>+</div>
-          <div class="label">Projects Delivered</div>
+          <div class="num" style="font-family:'Outfit', sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF;"><span id="hero-counter-3">200</span>+</div>
+          <div class="label" style="font-size:0.85rem; color:#F7931E; text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Projects Delivered</div>
         </div>
         <div class="hero-stat">
-          <div class="num"><span id="hero-counter-4">0</span></div>
-          <div class="label">Years Experience</div>
+          <div class="num" style="font-family:'Outfit', sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF;"><span id="hero-counter-4">4</span></div>
+          <div class="label" style="font-size:0.85rem; color:#F7931E; text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Years Experience</div>
         </div>
       </div>
 
-      <div class="hero-actions animate-in animate-delay-4">
-        <a href="projects.html" class="btn btn-primary btn-lg">
+      <div class="hero-actions animate-in animate-delay-4" style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+        <a href="projects.html" class="btn btn-primary btn-lg" style="background:#F7931E; color:#FFFFFF; padding:1rem 2.2rem; border-radius:8px; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; border:none; box-shadow:0 8px 25px rgba(247,147,30,0.4);">
           View Our Projects
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="contact.html" class="btn btn-outline btn-lg">Get A Free Quote</a>
+        <a href="contact.html" class="btn btn-lg" style="background:rgba(255,255,255,0.05); color:#FFFFFF !important; padding:1rem 2.2rem; border-radius:8px; font-weight:600; text-decoration:none; border:2px solid rgba(255,255,255,0.4); backdrop-filter:blur(4px);">Get A Free Quote</a>
       </div>
     </div>
   </div>
 
-  <!-- Floating info cards -->
-  <div class="hero-float-cards" aria-hidden="true">
-    <div class="hero-float-card">
-      <div class="float-icon">🌐</div>
+  <!-- Floating info cards with Glassmorphism -->
+  <div class="hero-float-cards" aria-hidden="true" style="position:absolute; bottom:2rem; right:2rem; display:flex; flex-direction:column; gap:1.2rem; z-index:2;">
+    <div class="glass-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:16px; padding:1.2rem 1.8rem; display:flex; align-items:center; gap:1.2rem; box-shadow:0 15px 35px rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.15); transform:translateX(0); transition:all 0.3s ease;">
+      <div class="float-icon" style="font-size:1.8rem; background:rgba(247,147,30,0.2); width:54px; height:54px; display:flex; align-items:center; justify-content:center; border-radius:12px; border:1px solid rgba(247,147,30,0.3);">🌐</div>
       <div>
-        <div class="float-title">OFC Execution</div>
-        <div class="float-sub">50,000+ km PAN India</div>
+        <div class="glass-title" style="color:#FFFFFF; font-weight:800; font-family:'Outfit', sans-serif; font-size:1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">OFC Execution</div>
+        <div class="glass-sub" style="color:rgba(255,255,255,0.75); font-size:0.85rem; font-weight:500;">50,000+ km PAN India</div>
       </div>
     </div>
-    <div class="hero-float-card">
-      <div class="float-icon">📡</div>
+    <div class="glass-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:16px; padding:1.2rem 1.8rem; display:flex; align-items:center; gap:1.2rem; box-shadow:0 15px 35px rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.15); transition:all 0.3s ease;">
+      <div class="float-icon" style="font-size:1.8rem; background:rgba(247,147,30,0.2); width:54px; height:54px; display:flex; align-items:center; justify-content:center; border-radius:12px; border:1px solid rgba(247,147,30,0.3);">📡</div>
       <div>
-        <div class="float-title">Tower Operations</div>
-        <div class="float-sub">Erection & Maintenance</div>
+        <div class="glass-title" style="color:#FFFFFF; font-weight:800; font-family:'Outfit', sans-serif; font-size:1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Tower Operations</div>
+        <div class="glass-sub" style="color:rgba(255,255,255,0.75); font-size:0.85rem; font-weight:500;">Erection & Maintenance</div>
       </div>
     </div>
-    <div class="hero-float-card">
-      <div class="float-icon">☀️</div>
+    <div class="glass-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:16px; padding:1.2rem 1.8rem; display:flex; align-items:center; gap:1.2rem; box-shadow:0 15px 35px rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.15); transition:all 0.3s ease;">
+      <div class="float-icon" style="font-size:1.8rem; background:rgba(247,147,30,0.2); width:54px; height:54px; display:flex; align-items:center; justify-content:center; border-radius:12px; border:1px solid rgba(247,147,30,0.3);">☀️</div>
       <div>
-        <div class="float-title">Solar Systems</div>
-        <div class="float-sub">BSNL BTS Site Solutions</div>
+        <div class="glass-title" style="color:#FFFFFF; font-weight:800; font-family:'Outfit', sans-serif; font-size:1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Solar Systems</div>
+        <div class="glass-sub" style="color:rgba(255,255,255,0.75); font-size:0.85rem; font-weight:500;">BSNL BTS Site Solutions</div>
       </div>
     </div>
   </div>
 
-  <div class="hero-scroll" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
-    <span class="scroll-text">Scroll</span>
-    <span class="scroll-line"></span>
+  <div class="hero-scroll" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down" style="position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; cursor:pointer; z-index:2;">
+    <span class="scroll-text" style="color:rgba(255,255,255,0.6); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700;">Scroll</span>
+    <span class="scroll-line" style="width:2px; height:40px; background:rgba(255,255,255,0.15); position:relative; overflow:hidden;">
+      <span style="position:absolute; top:0; left:0; width:100%; height:50%; background:#F7931E; animation:scrollDown 2s infinite;"></span>
+    </span>
   </div>
 </section>
 
 <!-- ==================== TICKER BAR ==================== -->
-<div class="ticker-bar">
-  <div class="ticker-inner" aria-hidden="true">
+<div class="ticker-wrap" style="background:#0A1F44; border-top:2px solid #F7931E; border-bottom:2px solid #F7931E; padding:1rem 0; overflow:hidden; white-space:nowrap; position:relative; z-index:10;">
+  <div class="ticker-inner" aria-hidden="true" style="display:inline-block; animation:ticker 30s linear infinite;">
     <!-- Items repeated twice for seamless loop -->
-    <div class="ticker-item"><span class="ticker-dot"></span> 50,000+ KM OFC Executed PAN India</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 90+ Skilled Professionals</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> BSNL 4G Network Expansion Partner</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Tower Erection & Maintenance</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Solar Power Installation at BSNL Sites</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Industrial Shed & PEB Construction</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Highway Safety & Road Works</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Office Interior & Turnkey Solutions</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>50,000+ KM OFC Executed PAN India</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>90+ Skilled Professionals</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>BSNL 4G Network Expansion Partner</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Tower Erection & Maintenance</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Solar Power Installation at BSNL Sites</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Industrial Shed & PEB Construction</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Highway Safety & Road Works</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Office Interior & Turnkey Solutions</div>
     <!-- Duplicate for seamless loop -->
-    <div class="ticker-item"><span class="ticker-dot"></span> 50,000+ KM OFC Executed PAN India</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> 90+ Skilled Professionals</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> BSNL 4G Network Expansion Partner</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Tower Erection & Maintenance</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Solar Power Installation at BSNL Sites</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Industrial Shed & PEB Construction</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Highway Safety & Road Works</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Office Interior & Turnkey Solutions</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>50,000+ KM OFC Executed PAN India</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>90+ Skilled Professionals</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>BSNL 4G Network Expansion Partner</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Tower Erection & Maintenance</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Solar Power Installation at BSNL Sites</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Industrial Shed & PEB Construction</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Highway Safety & Road Works</div>
+    <div class="ticker-item" style="display:inline-block; padding:0 2.5rem; font-family:'Outfit', sans-serif; font-size:1.1rem; font-weight:700; color:#FFFFFF; letter-spacing:0.05em;"><span class="ticker-dot" style="display:inline-block; width:8px; height:8px; background:#F7931E; border-radius:50%; margin-right:10px; margin-bottom:2px;"></span>Office Interior & Turnkey Solutions</div>
   </div>
 </div>
 
@@ -265,47 +363,47 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <!-- Left: Content -->
       <div class="animate-in">
-        <div class="section-label">About GN Management Services</div>
-        <h2 class="section-title mb-6">
-          Delivering <span>Integrated Solutions</span><br/>Across India Since 2021
+        <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E;">About GN Management Services</div>
+        <h2 class="section-title mb-6" style="color:#0A1F44; font-weight:800;">
+          Delivering <span style="color:#F7931E;">Integrated Solutions</span><br/>Across India Since 2021
         </h2>
-        <p class="section-desc mb-6">
+        <p class="section-desc mb-6" style="color:#4B5563; font-size:1.1rem; line-height:1.7;">
           GN Management Services was established in 2021, headquartered at Faridabad, Haryana. We specialize in construction, Optical Fiber Cable (OFC) execution, Tower Upgradation, site interior works, and BRO projects. Our mission is to deliver quality work and complete customer satisfaction.
         </p>
-        <p class="section-desc mb-8">
+        <p class="section-desc mb-8" style="color:#6B7280; font-size:1rem; line-height:1.6;">
           From planning and RF surveys to LOS and civil surveys, installation and commissioning of BTS/MW, drive testing and optimization — we provide comprehensive telecom solutions. We have grown to become one of India's leading integrated infrastructure companies.
         </p>
 
         <div class="grid grid-cols-2 gap-4 mb-8">
-          <div class="why-item" style="padding:1rem; background:rgba(249,115,22,0.05); border:1px solid rgba(249,115,22,0.15); border-radius:12px;">
+          <div class="premium-card hover-glow hover-scale" style="padding:1.2rem; background:#FFFFFF; border-left:4px solid #F7931E; box-shadow:0 8px 25px rgba(10,31,68,0.04);">
             <div>
-              <div class="why-title" style="font-size:0.9rem;">🎯 Quality First</div>
-              <div class="why-desc" style="font-size:0.78rem;">Unwavering commitment to quality standards in every project</div>
+              <div class="why-title" style="font-size:1.1rem; font-weight:700; color:#0A1F44; margin-bottom:0.25rem;">🎯 Quality First</div>
+              <div class="why-desc" style="font-size:0.85rem; color:#6B7280;">Unwavering commitment to quality standards</div>
             </div>
           </div>
-          <div class="why-item" style="padding:1rem; background:rgba(249,115,22,0.05); border:1px solid rgba(249,115,22,0.15); border-radius:12px;">
+          <div class="premium-card hover-glow hover-scale" style="padding:1.2rem; background:#FFFFFF; border-left:4px solid #F7931E; box-shadow:0 8px 25px rgba(10,31,68,0.04);">
             <div>
-              <div class="why-title" style="font-size:0.9rem;">⚡ Timely Delivery</div>
-              <div class="why-desc" style="font-size:0.78rem;">Projects completed on schedule without compromising standards</div>
+              <div class="why-title" style="font-size:1.1rem; font-weight:700; color:#0A1F44; margin-bottom:0.25rem;">⚡ Timely Delivery</div>
+              <div class="why-desc" style="font-size:0.85rem; color:#6B7280;">Projects completed on schedule without compromise</div>
             </div>
           </div>
-          <div class="why-item" style="padding:1rem; background:rgba(249,115,22,0.05); border:1px solid rgba(249,115,22,0.15); border-radius:12px;">
+          <div class="premium-card hover-glow hover-scale" style="padding:1.2rem; background:#FFFFFF; border-left:4px solid #F7931E; box-shadow:0 8px 25px rgba(10,31,68,0.04);">
             <div>
-              <div class="why-title" style="font-size:0.9rem;">🛡️ Safety Focus</div>
-              <div class="why-desc" style="font-size:0.78rem;">Zero-compromise safety culture on all project sites</div>
+              <div class="why-title" style="font-size:1.1rem; font-weight:700; color:#0A1F44; margin-bottom:0.25rem;">🛡️ Safety Focus</div>
+              <div class="why-desc" style="font-size:0.85rem; color:#6B7280;">Zero-compromise safety culture on all sites</div>
             </div>
           </div>
-          <div class="why-item" style="padding:1rem; background:rgba(249,115,22,0.05); border:1px solid rgba(249,115,22,0.15); border-radius:12px;">
+          <div class="premium-card hover-glow hover-scale" style="padding:1.2rem; background:#FFFFFF; border-left:4px solid #F7931E; box-shadow:0 8px 25px rgba(10,31,68,0.04);">
             <div>
-              <div class="why-title" style="font-size:0.9rem;">🌱 Sustainable</div>
-              <div class="why-desc" style="font-size:0.78rem;">Green products and environmentally-friendly practices</div>
+              <div class="why-title" style="font-size:1.1rem; font-weight:700; color:#0A1F44; margin-bottom:0.25rem;">🌱 Sustainable</div>
+              <div class="why-desc" style="font-size:0.85rem; color:#6B7280;">Green products and eco-friendly practices</div>
             </div>
           </div>
         </div>
 
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-          <a href="about.html" class="btn btn-primary">Learn More About Us</a>
-          <a href="contact.html" class="btn btn-outline">Contact Us</a>
+          <a href="about.html" class="btn btn-primary btn-lg hover-glow hover-scale" style="background:#F7931E; color:#FFFFFF; border-radius:8px; box-shadow:0 8px 20px rgba(247,147,30,0.25);">Learn More About Us</a>
+          <a href="contact.html" class="btn btn-outline btn-lg hover-scale" style="background:#FFFFFF; color:#0A1F44; border:2px solid #E5E7EB; border-radius:8px;">Contact Us</a>
         </div>
       </div>
 
@@ -313,42 +411,34 @@
       <div class="animate-in animate-delay-2">
         <div style="position:relative;">
           <!-- Main image placeholder with visual interest -->
-          <div style="background: url('images/organized/construction/pdf_015.webp') center/cover; border:1px solid var(--border); border-radius:20px; padding:2.5rem; position:relative; overflow:hidden;">
-            <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(13,32,69,0.9), rgba(13,32,69,0.7));"></div>
+          <div class="premium-card" style="background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover; border-radius:24px; padding:3rem; position:relative; overflow:hidden; min-height:500px; display:flex; flex-direction:column; justify-content:flex-end;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,31,68,0.95) 0%, rgba(10,31,68,0.2) 100%);"></div>
             <div style="position:relative; z-index:1;">
-            <div style="position:absolute;top:-30px;right:-30px;width:200px;height:200px;background:radial-gradient(circle, rgba(249,115,22,0.15), transparent);border-radius:50%;"></div>
-
-            <div style="font-size:3rem;margin-bottom:1.5rem;">🏗️</div>
-            <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:0.75rem;">Committed to Quality | Safety | Timely Delivery</h3>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;margin-bottom:2rem;">We have built our reputation on delivering reliable infrastructure solutions across multiple domains, maintaining the highest standards at every step of project execution.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-              <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;">
-                <div style="font-size:1.75rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--accent);">PAN India</div>
-                <div style="font-size:0.72rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.1em;">Coverage</div>
+              
+              <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.2); border-radius:16px; padding:1.5rem; display:inline-block; margin-bottom:1.5rem;">
+                <div style="font-size:2.5rem; margin-bottom:0.5rem;">🏗️</div>
+                <h3 style="font-family:'Outfit',sans-serif; font-size:1.4rem; font-weight:700; color:#fff;">Quality | Safety | Timely Delivery</h3>
               </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;">
-                <div style="font-size:1.75rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--accent);">2021</div>
-                <div style="font-size:0.72rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.1em;">Established</div>
+              
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div style="background:rgba(255,255,255,0.95); border-radius:12px; padding:1.2rem; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                  <div style="font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; color:#F7931E;">PAN India</div>
+                  <div style="font-size:0.75rem; color:#0A1F44; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Coverage</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.95); border-radius:12px; padding:1.2rem; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                  <div style="font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; color:#F7931E;">100+</div>
+                  <div style="font-size:0.75rem; color:#0A1F44; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Team Members</div>
+                </div>
               </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;">
-                <div style="font-size:1.75rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--accent);">8+</div>
-                <div style="font-size:0.72rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.1em;">Business Verticals</div>
-              </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;">
-                <div style="font-size:1.75rem;font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--accent);">100+</div>
-                <div style="font-size:0.72rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.1em;">Team Members</div>
-              </div>
-            </div>
             </div>
           </div>
 
           <!-- Floating badge -->
-          <div style="position:absolute;bottom:-20px;left:2rem;background:linear-gradient(135deg,var(--accent),#c2410c);border-radius:12px;padding:0.875rem 1.5rem;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(249,115,22,0.4);">
-            <span style="font-size:1.5rem;">🏆</span>
+          <div class="animate-float" style="position:absolute; top:-20px; right:-20px; background:#FFFFFF; border-radius:16px; padding:1.2rem; display:flex; align-items:center; gap:1rem; box-shadow:0 15px 35px rgba(10,31,68,0.15); border:1px solid rgba(10,31,68,0.05);">
+            <div style="background:#F7931E; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#fff;">🏆</div>
             <div>
-              <div style="font-weight:700;font-size:0.9rem;color:#fff;">Trusted Partner</div>
-              <div style="font-size:0.7rem;color:rgba(255,255,255,0.8);">BSNL · Praptham · Pace Digitek</div>
+              <div style="font-weight:800; font-size:1.1rem; color:#0A1F44; font-family:'Outfit',sans-serif;">Trusted Partner</div>
+              <div style="font-size:0.8rem; color:#6B7280; font-weight:500;">BSNL · Praptham · Pace Digitek</div>
             </div>
           </div>
         </div>
@@ -358,48 +448,28 @@
 </section>
 
 <!-- ==================== STATS COUNTER ==================== -->
-<section id="stats" class="section">
+<section id="stats" class="section" style="background:#FFFFFF; padding-top:60px; padding-bottom:100px;">
   <div class="section-inner">
-    <div class="stats-grid animate-in">
-      <div class="stat-card">
-        <div class="stat-icon">🌐</div>
-        <div class="stat-number"><span class="counter" data-target="50">0</span>K+</div>
-        <div class="stat-label">Km OFC Executed</div>
+    <div class="stats-grid animate-in" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:2rem;">
+      <div class="stat-card premium-card hover-glow hover-scale" style="padding:2rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-box" style="margin:0 auto 1.5rem;">🌐</div>
+        <div class="stat-number text-gradient" style="font-family:'Outfit',sans-serif; font-size:3rem; font-weight:800; line-height:1;"><span class="counter" data-target="50">0</span>K+</div>
+        <div class="stat-label" style="font-size:0.9rem; color:#6B7280; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Km OFC Executed</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">👷</div>
-        <div class="stat-number"><span class="counter" data-target="100">0</span>+</div>
-        <div class="stat-label">Skilled Professionals</div>
+      <div class="stat-card premium-card hover-glow hover-scale" style="padding:2rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-box" style="margin:0 auto 1.5rem;">👷</div>
+        <div class="stat-number text-gradient" style="font-family:'Outfit',sans-serif; font-size:3rem; font-weight:800; line-height:1;"><span class="counter" data-target="100">0</span>+</div>
+        <div class="stat-label" style="font-size:0.9rem; color:#6B7280; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Skilled Professionals</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">📡</div>
-        <div class="stat-number"><span class="counter" data-target="500">0</span>+</div>
-        <div class="stat-label">Towers Erected</div>
+      <div class="stat-card premium-card hover-glow hover-scale" style="padding:2rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-box" style="margin:0 auto 1.5rem;">📡</div>
+        <div class="stat-number text-gradient" style="font-family:'Outfit',sans-serif; font-size:3rem; font-weight:800; line-height:1;"><span class="counter" data-target="500">0</span>+</div>
+        <div class="stat-label" style="font-size:0.9rem; color:#6B7280; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Towers Erected</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon">🏗️</div>
-        <div class="stat-number"><span class="counter" data-target="200">0</span>+</div>
-        <div class="stat-label">Projects Delivered</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">☀️</div>
-        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
-        <div class="stat-label">Solar Sites Commissioned</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🏢</div>
-        <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
-        <div class="stat-label">Office Interiors Done</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🛣️</div>
-        <div class="stat-number"><span class="counter" data-target="8">0</span>+</div>
-        <div class="stat-label">Business Verticals</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🤝</div>
-        <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
-        <div class="stat-label">Corporate Clients</div>
+      <div class="stat-card premium-card hover-glow hover-scale" style="padding:2rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-box" style="margin:0 auto 1.5rem;">🏗️</div>
+        <div class="stat-number text-gradient" style="font-family:'Outfit',sans-serif; font-size:3rem; font-weight:800; line-height:1;"><span class="counter" data-target="200">0</span>+</div>
+        <div class="stat-label" style="font-size:0.9rem; color:#6B7280; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Projects Delivered</div>
       </div>
     </div>
   </div>
@@ -409,169 +479,145 @@
 <section id="verticals" class="section section-alt">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Our Business Verticals</div>
-      <h2 class="section-title">Eight Pillars of <span>Engineering Excellence</span></h2>
-      <p class="section-desc" style="margin:1rem auto 0;">Comprehensive infrastructure solutions spanning telecom, civil, energy, and workspace domains — all under one roof.</p>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E;">Our Business Verticals</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Eight Pillars of <span style="color:#F7931E;">Engineering Excellence</span></h2>
+      <p class="section-desc" style="margin:1rem auto 0; color:#6B7280; font-size:1.1rem;">Comprehensive infrastructure solutions spanning telecom, civil, energy, and workspace domains — all under one roof.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div class="vertical-card animate-in">
-        <div class="vertical-card-header">
-          <div class="vertical-num">01</div>
-          <div>
-            <div class="vertical-icon">🌐</div>
-            <div class="vertical-title">OFC Laying & Execution</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">🌐</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">01</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Underground & overhead OFC</li>
-            <li>End-to-end fiber solutions</li>
-            <li>NLD & Intracity routes</li>
-            <li>Testing & commissioning</li>
-            <li>Network upgrades & expansion</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">OFC Laying & Execution</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Underground & overhead OFC</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> End-to-end fiber solutions</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> NLD & Intracity routes</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Testing & commissioning</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-1">
-        <div class="vertical-card-header">
-          <div class="vertical-num">02</div>
-          <div>
-            <div class="vertical-icon">📡</div>
-            <div class="vertical-title">Tower Erection & Maintenance</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-1" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">📡</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">02</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>GSM/4G Lattice Towers & Poles</li>
-            <li>Roof Top Poles (RTP) & Towers (RTT)</li>
-            <li>GBM installation complete</li>
-            <li>Anti-corrosive painting</li>
-            <li>Foundation & civil works</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Tower Erection</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> GSM/4G Lattice Towers</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Roof Top Poles (RTP)</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> GBM installation complete</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Foundation & civil works</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-2">
-        <div class="vertical-card-header">
-          <div class="vertical-num">03</div>
-          <div>
-            <div class="vertical-icon">🏗️</div>
-            <div class="vertical-title">Civil Infrastructure</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-2" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">🏗️</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">03</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Highway & road construction</li>
-            <li>Earthwork & land grading</li>
-            <li>Drainage & sewer systems</li>
-            <li>Bridge & culvert construction</li>
-            <li>RCC foundation works</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Civil Infrastructure</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Highway & road construction</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Earthwork & land grading</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Drainage & sewer systems</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> RCC foundation works</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-3">
-        <div class="vertical-card-header">
-          <div class="vertical-num">04</div>
-          <div>
-            <div class="vertical-icon">🏭</div>
-            <div class="vertical-title">Industrial Construction</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-3" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">🏭</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">04</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Industrial & manufacturing units</li>
-            <li>Warehouse & logistics sheds</li>
-            <li>Pre-Engineered Buildings (PEB)</li>
-            <li>Agricultural storage sheds</li>
-            <li>Structural steel fabrication</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Industrial Construction</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Manufacturing units</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Warehouse & logistics sheds</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Pre-Engineered Buildings (PEB)</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Structural steel fabrication</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in">
-        <div class="vertical-card-header">
-          <div class="vertical-num">05</div>
-          <div>
-            <div class="vertical-icon">🛣️</div>
-            <div class="vertical-title">Highway Safety Works</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">🛣️</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">05</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Crash barrier installation</li>
-            <li>Road stud & signage boards</li>
-            <li>Guard rails & median barriers</li>
-            <li>Street & high mast lighting</li>
-            <li>Delineators & hazard markers</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Highway Safety Works</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Crash barrier installation</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Road stud & signage boards</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Guard rails & median barriers</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Street & high mast lighting</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-1">
-        <div class="vertical-card-header">
-          <div class="vertical-num">06</div>
-          <div>
-            <div class="vertical-icon">☀️</div>
-            <div class="vertical-title">Solar Installation</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-1" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">☀️</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">06</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Solar PV modules at BSNL sites</li>
-            <li>Battery bank installation</li>
-            <li>Earthing & lightning protection</li>
-            <li>DC cabling & termination</li>
-            <li>Grid / DG integration</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Solar Installation</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Solar PV modules at sites</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Battery bank installation</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Earthing & lightning protection</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Grid / DG integration</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-2">
-        <div class="vertical-card-header">
-          <div class="vertical-num">07</div>
-          <div>
-            <div class="vertical-icon">🪑</div>
-            <div class="vertical-title">Office Interior Solutions</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-2" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">🪑</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">07</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Modular workstations</li>
-            <li>Executive cabins & conference rooms</li>
-            <li>False ceilings & flooring</li>
-            <li>Electrical & partition works</li>
-            <li>Turnkey office projects</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Office Interiors</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Modular workstations</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Executive cabins & conference</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> False ceilings & flooring</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Turnkey office projects</li>
           </ul>
         </div>
       </div>
 
-      <div class="vertical-card animate-in animate-delay-3">
-        <div class="vertical-card-header">
-          <div class="vertical-num">08</div>
-          <div>
-            <div class="vertical-icon">📐</div>
-            <div class="vertical-title">Design Engineering</div>
+      <div class="vertical-card premium-card animate-in hover-glow hover-scale animate-delay-3" style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+            <div class="icon-box" style="margin-bottom:0; width:50px; height:50px; font-size:1.5rem;">📐</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem; color:rgba(10,31,68,0.05); line-height:1;">08</div>
           </div>
-        </div>
-        <div class="vertical-body">
-          <ul class="vertical-list">
-            <li>Tower Loading Validation (TLVA)</li>
-            <li>Pole Loading Validation (PLVA)</li>
-            <li>Geo-technical investigations</li>
-            <li>Foundation design for towers</li>
-            <li>Reverse engineering analysis</li>
+          <div class="vertical-title" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A1F44; margin-bottom:1rem;">Design Engineering</div>
+          <ul class="vertical-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Tower Loading Validation (TLVA)</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Pole Loading Validation (PLVA)</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Geo-technical investigations</li>
+            <li style="font-size:0.85rem; color:#4B5563; display:flex; gap:0.5rem;"><span style="color:#F7931E;">✓</span> Foundation design for towers</li>
           </ul>
         </div>
       </div>
 
     </div>
 
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="services.html" class="btn btn-primary btn-lg">Explore All Services</a>
+    <div style="text-align:center;margin-top:4rem;">
+      <a href="services.html" class="btn btn-primary btn-lg hover-glow hover-scale" style="background:#F7931E; color:#FFFFFF; border-radius:8px; box-shadow:0 8px 20px rgba(247,147,30,0.25);">Explore All Services</a>
     </div>
   </div>
 </section>
@@ -583,32 +629,32 @@
 
       <!-- Left Visual -->
       <div class="animate-in" style="position:relative;">
-        <div style="background:linear-gradient(135deg, rgba(249,115,22,0.08), rgba(13,32,69,0.6)); border:1px solid var(--border); border-radius:24px; padding:3rem; position:relative; overflow:hidden;">
-          <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle, rgba(249,115,22,0.1), transparent);border-radius:50%;transform:translate(50%,-50%);"></div>
+        <div class="premium-card" style="background:linear-gradient(135deg, #0A1F44 0%, #1a365d 100%); border-radius:24px; padding:3rem; position:relative; overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle, rgba(247,147,30,0.15), transparent);border-radius:50%;transform:translate(50%,-50%);"></div>
 
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:1rem;">Our <span style="color:var(--accent);">Strength</span> is Your <span style="color:var(--gold);">Success</span></h3>
-          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;margin-bottom:2rem;">With over 13 years of combined leadership experience, we bring expertise, innovation, and dedication to every project we undertake.</p>
+          <h3 style="font-family:'Outfit',sans-serif;font-size:3rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem;">Our <span style="color:#F7931E;">Strength</span> is Your <span style="color:#F7931E;">Success</span></h3>
+          <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;line-height:1.7;margin-bottom:2rem;">With over 13 years of combined leadership experience, we bring expertise, innovation, and dedication to every project we undertake.</p>
 
           <div style="display:flex;flex-direction:column;gap:1rem;">
-            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <div style="font-size:1.5rem;">🎯</div>
+            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.2rem;">
+              <div style="font-size:2rem;">🎯</div>
               <div>
-                <div style="font-weight:700;color:#fff;font-size:0.9rem;">Sustainable Projects</div>
-                <div style="font-size:0.78rem;color:var(--text-secondary);">Sustainable revenue CAGR with green, eco-friendly approaches</div>
+                <div style="font-weight:700;color:#fff;font-size:1rem;">Sustainable Projects</div>
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);">Sustainable revenue CAGR with eco-friendly approaches</div>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <div style="font-size:1.5rem;">🌍</div>
+            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.2rem;">
+              <div style="font-size:2rem;">🌍</div>
               <div>
-                <div style="font-weight:700;color:#fff;font-size:0.9rem;">International Quality Standards</div>
-                <div style="font-size:0.78rem;color:var(--text-secondary);">Applied where local standards are unavailable or insufficient</div>
+                <div style="font-weight:700;color:#fff;font-size:1rem;">International Quality Standards</div>
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);">Applied where local standards are unavailable or insufficient</div>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1rem;">
-              <div style="font-size:1.5rem;">💰</div>
+            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.2rem;">
+              <div style="font-size:2rem;">💰</div>
               <div>
-                <div style="font-weight:700;color:#fff;font-size:0.9rem;">Cost Effectiveness</div>
-                <div style="font-size:0.78rem;color:var(--text-secondary);">Maximum value delivery without compromising quality</div>
+                <div style="font-weight:700;color:#fff;font-size:1rem;">Cost Effectiveness</div>
+                <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);">Maximum value delivery without compromising quality</div>
               </div>
             </div>
           </div>
@@ -617,54 +663,45 @@
 
       <!-- Right: Why items -->
       <div class="animate-in animate-delay-2">
-        <div class="section-label">Why Choose Us</div>
-        <h2 class="section-title mb-8">
-          The GN <span>Advantage</span>
+        <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E;">Why Choose Us</div>
+        <h2 class="section-title mb-8" style="color:#0A1F44; font-weight:800;">
+          The GN <span style="color:#F7931E;">Advantage</span>
         </h2>
 
-        <div style="display:flex;flex-direction:column;gap:0.5rem;">
-          <div class="why-item">
-            <div class="why-icon">🏆</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          
+          <div class="why-item premium-card" style="display:flex; gap:1.5rem; padding:1.5rem; align-items:flex-start;">
+            <div class="why-icon" style="background:rgba(247,147,30,0.1); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">🏆</div>
             <div>
-              <div class="why-title">Proven Industry Expertise</div>
-              <div class="why-desc">Our leadership team brings 7–18 years of experience in Telecom, Civil, and Infrastructure sectors with MNCs and leading organizations.</div>
+              <div class="why-title" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem; margin-bottom:0.25rem;">Proven Industry Expertise</div>
+              <div class="why-desc" style="color:#6B7280; font-size:0.9rem; line-height:1.6;">Our leadership team brings 7–18 years of experience in Telecom, Civil, and Infrastructure sectors with MNCs and leading organizations.</div>
             </div>
           </div>
-          <div class="why-item">
-            <div class="why-icon">🔧</div>
+          
+          <div class="why-item premium-card" style="display:flex; gap:1.5rem; padding:1.5rem; align-items:flex-start;">
+            <div class="why-icon" style="background:rgba(247,147,30,0.1); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">🔧</div>
             <div>
-              <div class="why-title">End-to-End Project Management</div>
-              <div class="why-desc">From planning, surveys, and design to execution, testing, commissioning, and final handover — we manage every phase.</div>
+              <div class="why-title" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem; margin-bottom:0.25rem;">End-to-End Project Management</div>
+              <div class="why-desc" style="color:#6B7280; font-size:0.9rem; line-height:1.6;">From planning, surveys, and design to execution, testing, commissioning, and final handover — we manage every phase.</div>
             </div>
           </div>
-          <div class="why-item">
-            <div class="why-icon">👷</div>
+          
+          <div class="why-item premium-card" style="display:flex; gap:1.5rem; padding:1.5rem; align-items:flex-start;">
+            <div class="why-icon" style="background:rgba(247,147,30,0.1); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">👷</div>
             <div>
-              <div class="why-title">100+ Skilled Technical Team</div>
-              <div class="why-desc">Engineers, supervisors, technicians, and support staff — all trained in modern construction methods and safety standards.</div>
+              <div class="why-title" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem; margin-bottom:0.25rem;">100+ Skilled Technical Team</div>
+              <div class="why-desc" style="color:#6B7280; font-size:0.9rem; line-height:1.6;">Engineers, supervisors, technicians, and support staff — all trained in modern construction methods and safety standards.</div>
             </div>
           </div>
-          <div class="why-item">
-            <div class="why-icon">📍</div>
+          
+          <div class="why-item premium-card" style="display:flex; gap:1.5rem; padding:1.5rem; align-items:flex-start;">
+            <div class="why-icon" style="background:rgba(247,147,30,0.1); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">📍</div>
             <div>
-              <div class="why-title">PAN India Operations</div>
-              <div class="why-desc">Offices in Faridabad (Haryana) and Jammu — with project execution across multiple telecom zones and states.</div>
+              <div class="why-title" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem; margin-bottom:0.25rem;">PAN India Operations</div>
+              <div class="why-desc" style="color:#6B7280; font-size:0.9rem; line-height:1.6;">Offices in Faridabad (Haryana) and Jammu — with project execution across multiple telecom zones and states.</div>
             </div>
           </div>
-          <div class="why-item">
-            <div class="why-icon">⚡</div>
-            <div>
-              <div class="why-title">Innovation-Driven Approach</div>
-              <div class="why-desc">Continuously researching new designs, materials, and methods to improve performance and reduce costs for clients.</div>
-            </div>
-          </div>
-          <div class="why-item">
-            <div class="why-icon">🤝</div>
-            <div>
-              <div class="why-title">Trusted by Industry Leaders</div>
-              <div class="why-desc">Active collaborations with BSNL, Praptham Tech Solution, Pace Digitek, and Melco India for critical national projects.</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -675,124 +712,125 @@
 <section id="featured-projects" class="section section-alt">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Current Collaborations</div>
-      <h2 class="section-title">Working With <span>Industry Leaders</span></h2>
-      <p class="section-desc" style="margin:1rem auto 0;">GN Management Services is proud to actively collaborate with India's leading telecom and engineering companies.</p>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Current Collaborations</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Working With <span style="color:#F7931E;">Industry Leaders</span></h2>
+      <p class="section-desc" style="margin:1rem auto 0; color:#6B7280; font-size:1.1rem;">GN Management Services is proud to actively collaborate with India's leading telecom and engineering companies.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
 
       <!-- Praptham -->
-      <div class="service-card animate-in">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,rgba(249,115,22,0.15),rgba(249,115,22,0.05));border:1px solid rgba(249,115,22,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Rajdhani',sans-serif;font-size:1.2rem;color:var(--accent);">PT</div>
+      <div class="service-card premium-card animate-in hover-glow hover-scale" style="padding:2rem;">
+        <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;">
+          <div style="width:60px;height:60px;background:rgba(247,147,30,0.1);border:1px solid rgba(247,147,30,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Outfit',sans-serif;font-size:1.5rem;color:#F7931E;">PT</div>
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;color:#fff;font-size:1rem;">Praptham Tech Solution Pvt. Ltd.</div>
-            <div style="font-size:0.72rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Bangalore, India</div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;color:#0A1F44;font-size:1.1rem;">Praptham Tech Solution</div>
+            <div style="font-size:0.8rem;color:#F7931E;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Bangalore, India</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem;">Founded in 2017, PTSL is a leading service provider in telecom, retail fitout, and EV charging across India.</p>
-        <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:10px;padding:1rem;">
-          <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.5rem;font-weight:600;">Scope of Work</div>
-          <div style="font-size:0.85rem;color:#e2e8f0;">Industrial Shed Construction · Foundation Work · Building Construction</div>
-          <div style="margin-top:0.5rem;font-size:0.75rem;color:var(--accent);">📍 Multiple Telecom Zones, PAN India</div>
+        <p style="font-size:0.95rem;color:#6B7280;line-height:1.6;margin-bottom:1.5rem;">Founded in 2017, PTSL is a leading service provider in telecom, retail fitout, and EV charging across India.</p>
+        <div style="background:#F8F9FA;border:1px solid #E5E7EB;border-radius:12px;padding:1.2rem;">
+          <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:#4B5563;margin-bottom:0.5rem;font-weight:700;">Scope of Work</div>
+          <div style="font-size:0.9rem;color:#0A1F44;font-weight:500;">Industrial Shed Construction · Foundation Work · Building Construction</div>
+          <div style="margin-top:0.75rem;font-size:0.85rem;color:#F7931E;font-weight:600;">📍 Multiple Telecom Zones, PAN India</div>
         </div>
       </div>
 
       <!-- Pace Digitek -->
-      <div class="service-card animate-in animate-delay-2">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05));border:1px solid rgba(212,175,55,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Rajdhani',sans-serif;font-size:1.2rem;color:var(--gold);">PD</div>
+      <div class="service-card premium-card animate-in hover-glow hover-scale animate-delay-2" style="padding:2rem;">
+        <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;">
+          <div style="width:60px;height:60px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Outfit',sans-serif;font-size:1.5rem;color:#D4AF37;">PD</div>
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;color:#fff;font-size:1rem;">Pace Digitek Ltd.</div>
-            <div style="font-size:0.72rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Bengaluru, India · Est. 2003</div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;color:#0A1F44;font-size:1.1rem;">Pace Digitek Ltd.</div>
+            <div style="font-size:0.8rem;color:#D4AF37;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Bengaluru, India · Est. 2003</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem;">Global provider of telecom infrastructure, power management, optic fiber, and renewable energy solutions since 2003.</p>
-        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:10px;padding:1rem;">
-          <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.5rem;font-weight:600;">Scope of Work</div>
-          <div style="font-size:0.85rem;color:#e2e8f0;">Telecom Infrastructure Deployment · Civil Works</div>
-          <div style="margin-top:0.5rem;font-size:0.75rem;color:var(--gold);">📍 PAN India Operations</div>
+        <p style="font-size:0.95rem;color:#6B7280;line-height:1.6;margin-bottom:1.5rem;">Global provider of telecom infrastructure, power management, optic fiber, and renewable energy solutions since 2003.</p>
+        <div style="background:#F8F9FA;border:1px solid #E5E7EB;border-radius:12px;padding:1.2rem;">
+          <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:#4B5563;margin-bottom:0.5rem;font-weight:700;">Scope of Work</div>
+          <div style="font-size:0.9rem;color:#0A1F44;font-weight:500;">Telecom Infrastructure Deployment · Civil Works</div>
+          <div style="margin-top:0.75rem;font-size:0.85rem;color:#D4AF37;font-weight:600;">📍 PAN India Operations</div>
         </div>
       </div>
 
       <!-- Melco India -->
-      <div class="service-card animate-in animate-delay-4">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(59,130,246,0.05));border:1px solid rgba(59,130,246,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Rajdhani',sans-serif;font-size:1.2rem;color:#60a5fa;">MI</div>
+      <div class="service-card premium-card animate-in hover-glow hover-scale animate-delay-4" style="padding:2rem;">
+        <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;">
+          <div style="width:60px;height:60px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Outfit',sans-serif;font-size:1.5rem;color:#3B82F6;">MI</div>
           <div>
-            <div style="font-family:'Rajdhani',sans-serif;font-weight:700;color:#fff;font-size:1rem;">Melco India Pvt. Ltd.</div>
-            <div style="font-size:0.72rem;color:#60a5fa;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Engineering Excellence</div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;color:#0A1F44;font-size:1.1rem;">Melco India Pvt. Ltd.</div>
+            <div style="font-size:0.8rem;color:#3B82F6;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Engineering Excellence</div>
           </div>
         </div>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem;">Reputed engineering company specializing in material handling, boiler components, and power plant structures for thermal, cement, and steel sectors.</p>
-        <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:10px;padding:1rem;">
-          <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.5rem;font-weight:600;">Scope of Work</div>
-          <div style="font-size:0.85rem;color:#e2e8f0;">Civil Construction · Structural Fabrication · Telecom Infrastructure</div>
-          <div style="margin-top:0.5rem;font-size:0.75rem;color:#60a5fa;">📍 Project-Based, Across India</div>
+        <p style="font-size:0.95rem;color:#6B7280;line-height:1.6;margin-bottom:1.5rem;">Reputed engineering company specializing in material handling, boiler components, and power plant structures.</p>
+        <div style="background:#F8F9FA;border:1px solid #E5E7EB;border-radius:12px;padding:1.2rem;">
+          <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:#4B5563;margin-bottom:0.5rem;font-weight:700;">Scope of Work</div>
+          <div style="font-size:0.9rem;color:#0A1F44;font-weight:500;">Civil Construction · Structural Fabrication · Telecom Infrastructure</div>
+          <div style="margin-top:0.75rem;font-size:0.85rem;color:#3B82F6;font-weight:600;">📍 Project-Based, Across India</div>
         </div>
       </div>
 
     </div>
 
     <div style="text-align:center;">
-      <a href="projects.html" class="btn btn-primary btn-lg">View All Projects</a>
+      <a href="projects.html" class="btn btn-primary btn-lg hover-glow hover-scale" style="background:#F7931E; color:#FFFFFF; border-radius:8px; box-shadow:0 8px 20px rgba(247,147,30,0.25);">View All Projects</a>
     </div>
   </div>
 </section>
 
 <!-- ==================== WORK PROCESS ==================== -->
-<section id="process" class="section">
+<section id="process" class="section" style="background:#FFFFFF;">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">How We Work</div>
-      <h2 class="section-title">Our <span>Proven Process</span></h2>
-      <p class="section-desc" style="margin:1rem auto 0;">A systematic, transparent approach ensures every project is delivered on time, within budget, and to the highest quality standards.</p>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">How We Work</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Our <span style="color:#F7931E;">Proven Process</span></h2>
+      <p class="section-desc" style="margin:1rem auto 0; color:#6B7280; font-size:1.1rem;">A systematic, transparent approach ensures every project is delivered on time, within budget, and to the highest quality standards.</p>
     </div>
 
-    <div class="process-steps animate-in">
-      <div class="process-step">
-        <div class="process-num">01</div>
-        <div>
-          <div class="process-step-title">Discovery & Survey</div>
-          <div class="process-step-desc">Site surveys, RF surveys, LOS surveys, geo-technical investigations and requirement analysis</div>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-in">
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">01</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">🔍</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Discovery & Survey</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">Site surveys, RF surveys, LOS surveys, geo-technical investigations and requirement analysis</div>
       </div>
-      <div class="process-step">
-        <div class="process-num">02</div>
-        <div>
-          <div class="process-step-title">Design & Engineering</div>
-          <div class="process-step-desc">TLVA/PLVA validation, structural designs, foundation engineering, and drawing approvals</div>
-        </div>
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">02</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">📐</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Design & Engineering</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">TLVA/PLVA validation, structural designs, foundation engineering, and drawing approvals</div>
       </div>
-      <div class="process-step">
-        <div class="process-num">03</div>
-        <div>
-          <div class="process-step-title">Procurement & Mobilization</div>
-          <div class="process-step-desc">ISI certified materials, certified tools, team deployment, and safety gear setup</div>
-        </div>
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">03</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">📦</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Procurement & Setup</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">ISI certified materials, certified tools, team deployment, and safety gear setup</div>
       </div>
-      <div class="process-step">
-        <div class="process-num">04</div>
-        <div>
-          <div class="process-step-title">Execution & Installation</div>
-          <div class="process-step-desc">Precision construction, tower erection, OFC laying, or interior fitout with strict QC</div>
-        </div>
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">04</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">🏗️</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Execution & Installation</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">Precision construction, tower erection, OFC laying, or interior fitout with strict QC</div>
       </div>
-      <div class="process-step">
-        <div class="process-num">05</div>
-        <div>
-          <div class="process-step-title">Testing & Commissioning</div>
-          <div class="process-step-desc">Comprehensive testing, optimization, drive testing, and performance verification</div>
-        </div>
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">05</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">✅</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Testing & Commissioning</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">Comprehensive testing, optimization, drive testing, and performance verification</div>
       </div>
-      <div class="process-step">
-        <div class="process-num">06</div>
-        <div>
-          <div class="process-step-title">Handover & Support</div>
-          <div class="process-step-desc">Site restoration, documentation, final handover and ongoing maintenance support</div>
-        </div>
+      
+      <div class="premium-card hover-glow hover-scale" style="padding:2.5rem; text-align:center; position:relative;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); background:#F7931E; color:#FFFFFF; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem; box-shadow:0 5px 15px rgba(247,147,30,0.3);">06</div>
+        <div style="font-size:2.5rem; margin-top:1rem; margin-bottom:1rem;">🤝</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.2rem; margin-bottom:0.75rem;">Handover & Support</div>
+        <div style="color:#6B7280; font-size:0.95rem; line-height:1.6;">Site restoration, documentation, final handover and ongoing maintenance support</div>
       </div>
+      
     </div>
   </div>
 </section>
@@ -801,146 +839,146 @@
 <section id="team" class="section section-alt">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Our Leadership</div>
-      <h2 class="section-title">Management <span>Team</span></h2>
-      <p class="section-desc" style="margin:1rem auto 0;">Our leadership team brings decades of combined experience from leading MNCs and telecom infrastructure companies.</p>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Our Leadership</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Management <span style="color:#F7931E;">Team</span></h2>
+      <p class="section-desc" style="margin:1rem auto 0; color:#6B7280; font-size:1.1rem;">Our leadership team brings decades of combined experience from leading MNCs and telecom infrastructure companies.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
 
       <!-- Harpreet Singh -->
-      <div class="team-card animate-in">
-        <div class="team-avatar-placeholder">H</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">H</div>
         <div class="team-info">
-          <div class="team-name">Harpreet Singh</div>
-          <div class="team-role">Chief Executive Officer (CEO)</div>
-          <div class="team-exp">13+ years of experience in leading MNCs & Telecom Infrastructure. Post Graduate in Management; Graduate in Electronics & Communication Engineering. Expertise in Management, Projects, and Operations.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Harpreet Singh</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">CFO</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">13+ years of experience in leading MNCs & Telecom Infrastructure. Post Graduate in Management; Graduate in Electronics & Communication Engineering. Expertise in Management, Projects, and Operations.</div>
         </div>
       </div>
 
       <!-- Jatinder Singh -->
-      <div class="team-card animate-in animate-delay-1">
-        <div class="team-avatar-placeholder">J</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in animate-delay-1" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">J</div>
         <div class="team-info">
-          <div class="team-name">Jatinder Singh</div>
-          <div class="team-role">Sr. Manager – Operations</div>
-          <div class="team-exp">12+ years of experience in leading MNCs & Telecom Infrastructure. Graduate in Electronics & Communication Engineering. Expert in Management, Project & Operation Management.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Jatinder Singh</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Sr. Manager – Operations</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">12+ years of experience in leading MNCs & Telecom Infrastructure. Graduate in Electronics & Communication Engineering. Expert in Management, Project & Operation Management.</div>
         </div>
       </div>
 
       <!-- Kulpreet Kaur -->
-      <div class="team-card animate-in animate-delay-2">
-        <div class="team-avatar-placeholder">K</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">K</div>
         <div class="team-info">
-          <div class="team-name">Kulpreet Kaur</div>
-          <div class="team-role">General Manager – BD & Project Management</div>
-          <div class="team-exp">18+ years in MNCs, Telecom Infrastructure & Railways. Post Graduate in Public Administration & PG Diploma in Business Management. Expertise across Administration, IT, Operations, Sales & Procurement.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Kulpreet Kaur</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">General Manager – BD & Projects</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">18+ years in MNCs, Telecom Infrastructure & Railways. Post Graduate in Public Administration & PG Diploma in Business Management. Expertise across Administration, IT, Operations, Sales & Procurement.</div>
         </div>
       </div>
 
       <!-- Rahul Kumar -->
-      <div class="team-card animate-in">
-        <div class="team-avatar-placeholder">R</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">R</div>
         <div class="team-info">
-          <div class="team-name">Rahul Kumar</div>
-          <div class="team-role">Sr. Manager – OFC & FTTx</div>
-          <div class="team-exp">15+ years in Telecom Infrastructure. Executed 50,000+ km of OFC Works PAN India. Diploma Engineer in Electronics & Communication. Expert in NLD & Intracity OFC routes construction.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Rahul Kumar</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Sr. Manager – OFC & FTTx</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">15+ years in Telecom Infrastructure. Executed 50,000+ km of OFC Works PAN India. Diploma Engineer in Electronics & Communication. Expert in NLD & Intracity OFC routes construction.</div>
         </div>
       </div>
 
       <!-- Priya Kaur -->
-      <div class="team-card animate-in animate-delay-1">
-        <div class="team-avatar-placeholder">P</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in animate-delay-1" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">P</div>
         <div class="team-info">
-          <div class="team-name">Priya Kaur</div>
-          <div class="team-role">Sr. Legal Advisor</div>
-          <div class="team-exp">7+ years in corporate legal advisory. Expertise in contract management, regulatory compliance, dispute resolution, and risk mitigation. Specializes in telecom and civil infrastructure legal support.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Priya Kaur</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Sr. Legal Advisor</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">7+ years in corporate legal advisory. Expertise in contract management, regulatory compliance, dispute resolution, and risk mitigation. Specializes in telecom and civil infrastructure legal support.</div>
         </div>
       </div>
 
       <!-- Naveen -->
-      <div class="team-card animate-in animate-delay-2">
-        <div class="team-avatar-placeholder">N</div>
+      <div class="team-card premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:2rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+        <div class="team-avatar-placeholder" style="width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg, #0A1F44, #1a365d); color:#fff; font-size:2rem; font-family:'Outfit',sans-serif; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 10px 25px rgba(10,31,68,0.2);">N</div>
         <div class="team-info">
-          <div class="team-name">Naveen</div>
-          <div class="team-role">Chief Financial Officer (CFO)</div>
-          <div class="team-exp">Expert in financial planning & analysis, GST, taxation, and corporate compliance. Manages budget allocation for telecom and civil projects. Drives business growth through effective financial strategies.</div>
+          <div class="team-name" style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#0A1F44; margin-bottom:0.25rem;">Naveen</div>
+          <div class="team-role" style="color:#F7931E; font-weight:600; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1rem;">Head Projects Operations</div>
+          <div class="team-exp" style="color:#6B7280; font-size:0.95rem; line-height:1.6;">Expert in financial planning & analysis, GST, taxation, and corporate compliance. Manages budget allocation for telecom and civil projects. Drives business growth through effective financial strategies.</div>
         </div>
       </div>
 
     </div>
 
-    <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;">
-      <div style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:0.75rem;">Project Management Team</div>
-      <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:1.5rem;">Our ground-level execution is led by a dedicated team of 90+ skilled professionals across all project sites.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;max-width:700px;margin:0 auto;">
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Gagandeep Singh</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Ravinder Singh</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Ujagar Singh</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Rakesh Kumar</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Ajay Khaujria</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Sukhvinder Singh</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Ajay Singh</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Dev Bhagat</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Ajay Attri</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Gaurav Sharma</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Vaishno Bhai</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Raja Din Bhai</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Bilal Ahmed</span>
-        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:6px;padding:4px 12px;font-size:0.78rem;color:var(--text-secondary);">Sourav Manha</span>
+    <div style="background:linear-gradient(135deg, #0A1F44 0%, #1a365d 100%);border-radius:16px;padding:3rem 2rem;text-align:center;box-shadow:0 20px 40px rgba(10,31,68,0.15);">
+      <div style="font-family:'Outfit',sans-serif;font-size:1.75rem;font-weight:800;color:#fff;margin-bottom:0.75rem;">Project Management Team</div>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;">Our ground-level execution is led by a dedicated team of 90+ skilled professionals across all project sites.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;max-width:800px;margin:0 auto;">
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Gagandeep Singh</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Ravinder Singh</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Ujagar Singh</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Rakesh Kumar</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Ajay Khaujria</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Sukhvinder Singh</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Ajay Singh</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Dev Bhagat</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Ajay Attri</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Gaurav Sharma</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Vaishno Bhai</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Raja Din Bhai</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Bilal Ahmed</span>
+        <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 16px;font-size:0.9rem;color:#fff;font-weight:500;">Sourav Manha</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== INDUSTRIES WE SERVE ==================== -->
-<section id="industries" class="section">
+<section id="industries" class="section" style="background:#FFFFFF;">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Sectors We Serve</div>
-      <h2 class="section-title">Industries We <span>Power</span></h2>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Sectors We Serve</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Industries We <span style="color:#F7931E;">Power</span></h2>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <div class="industry-card animate-in">
-        <div class="industry-icon">📡</div>
-        <div class="industry-title">Telecommunications</div>
-        <div class="industry-desc">BSNL, telecom operators, infrastructure companies</div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="premium-card hover-glow hover-scale animate-in" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">📡</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Telecommunications</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">BSNL, telecom operators, infrastructure companies</div>
       </div>
-      <div class="industry-card animate-in animate-delay-1">
-        <div class="industry-icon">🏛️</div>
-        <div class="industry-title">Government & PSU</div>
-        <div class="industry-desc">BRO, BSNL, and public sector projects</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-1" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🏛️</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Government & PSU</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">BRO, BSNL, and public sector projects</div>
       </div>
-      <div class="industry-card animate-in animate-delay-2">
-        <div class="industry-icon">🏭</div>
-        <div class="industry-title">Industrial & Manufacturing</div>
-        <div class="industry-desc">Factories, warehouses, industrial sheds</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🏭</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Industrial & Mfg</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Factories, warehouses, industrial sheds</div>
       </div>
-      <div class="industry-card animate-in animate-delay-3">
-        <div class="industry-icon">🛣️</div>
-        <div class="industry-title">Highway & Transport</div>
-        <div class="industry-desc">Road safety, crash barriers, traffic management</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-3" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🛣️</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Highway & Transport</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Road safety, crash barriers, traffic management</div>
       </div>
-      <div class="industry-card animate-in">
-        <div class="industry-icon">⚡</div>
-        <div class="industry-title">Energy & Solar</div>
-        <div class="industry-desc">Renewable energy, BSNL BTS solar systems</div>
+      <div class="premium-card hover-glow hover-scale animate-in" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">⚡</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Energy & Solar</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Renewable energy, BSNL BTS solar systems</div>
       </div>
-      <div class="industry-card animate-in animate-delay-1">
-        <div class="industry-icon">🏢</div>
-        <div class="industry-title">Corporate & Commercial</div>
-        <div class="industry-desc">Office fitouts, workspaces, commercial interiors</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-1" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🏢</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Corporate</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Office fitouts, workspaces, commercial interiors</div>
       </div>
-      <div class="industry-card animate-in animate-delay-2">
-        <div class="industry-icon">🏗️</div>
-        <div class="industry-title">Real Estate & Construction</div>
-        <div class="industry-desc">Civil works, structural projects, infrastructure</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🏗️</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Construction</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Civil works, structural projects, infrastructure</div>
       </div>
-      <div class="industry-card animate-in animate-delay-3">
-        <div class="industry-icon">🌾</div>
-        <div class="industry-title">Agriculture & Logistics</div>
-        <div class="industry-desc">Storage sheds, logistics warehouses</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-3" style="padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:transform 0.3s ease;">
+        <div style="font-size:2rem; background:rgba(247,147,30,0.1); width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:16px; color:#F7931E; margin-bottom:0.5rem;">🌾</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:1.1rem;">Logistics</div>
+        <div style="color:#6B7280; font-size:0.85rem; line-height:1.5;">Storage sheds, logistics warehouses</div>
       </div>
     </div>
   </div>
@@ -950,88 +988,88 @@
 <section id="certifications" class="section section-alt">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Our Standards</div>
-      <h2 class="section-title">Quality <span>Certifications</span></h2>
-      <p class="section-desc" style="margin:1rem auto 0;">We adhere to local and international standards ensuring durable, safe, and compliant project execution.</p>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Our Standards</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Quality <span style="color:#F7931E;">Certifications</span></h2>
+      <p class="section-desc" style="margin:1rem auto 0; color:#6B7280; font-size:1.1rem;">We adhere to local and international standards ensuring durable, safe, and compliant project execution.</p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      <div class="cert-card animate-in">
-        <div class="cert-icon">🏅</div>
-        <div class="cert-title">ISI Certified Materials</div>
-        <div class="cert-desc">MS, ISMB, ISMC, H-Beams</div>
+      <div class="premium-card hover-glow hover-scale animate-in" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🏅</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">ISI Materials</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">MS, ISMB, ISMC</div>
       </div>
-      <div class="cert-card animate-in animate-delay-1">
-        <div class="cert-icon">📋</div>
-        <div class="cert-title">BSNL Compliant</div>
-        <div class="cert-desc">TEC & BSNL specifications</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-1" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">📋</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">BSNL Compliant</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">TEC specifications</div>
       </div>
-      <div class="cert-card animate-in animate-delay-2">
-        <div class="cert-icon">🔒</div>
-        <div class="cert-title">Safety Standards</div>
-        <div class="cert-desc">Zero-compromise site safety</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🔒</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">Safety First</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">Zero-compromise</div>
       </div>
-      <div class="cert-card animate-in animate-delay-3">
-        <div class="cert-icon">🌐</div>
-        <div class="cert-title">International Standards</div>
-        <div class="cert-desc">Global best practices applied</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-3" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🌐</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">Global Standards</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">Best practices</div>
       </div>
-      <div class="cert-card animate-in animate-delay-4">
-        <div class="cert-icon">🛡️</div>
-        <div class="cert-title">Anti-Corrosive Specs</div>
-        <div class="cert-desc">PPGI, coated roofing sheets</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-4" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🛡️</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">Anti-Corrosive</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">PPGI, coated roofing</div>
       </div>
-      <div class="cert-card animate-in animate-delay-5">
-        <div class="cert-icon">✅</div>
-        <div class="cert-title">Quality Control</div>
-        <div class="cert-desc">Rigorous inspection processes</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-5" style="padding:1.5rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">✅</div>
+        <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem; margin-bottom:0.25rem;">Quality Control</div>
+        <div style="color:#6B7280; font-size:0.75rem; line-height:1.4;">Rigorous inspections</div>
       </div>
     </div>
 
     <!-- Materials Used -->
-    <div style="margin-top:3rem;background:var(--surface-2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;">
-      <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;text-align:center;margin-bottom:1.5rem;">Quality Materials We Use</h3>
+    <div style="margin-top:3rem;background:#F8F9FA;border:1px solid #E5E7EB;border-radius:20px;padding:2.5rem;box-shadow:inset 0 2px 10px rgba(0,0,0,0.02);">
+      <h3 style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:#0A1F44;text-align:center;margin-bottom:2rem;">Quality Materials We Use</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>🔩</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">🔩</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Steel Structures</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">ISI certified MS, ISMB, ISMC, H-Beams, C/Z purlins</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Steel Structures</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">ISI certified MS, ISMB, C/Z purlins</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>🏗️</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">🏗️</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Roofing Sheets</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">PPGI / Colour Coated Sheets with anti-corrosive coating</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Roofing Sheets</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">PPGI / Colour Coated with anti-corrosive coating</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>⚙️</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">⚙️</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Fasteners</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">High-tensile bolts & nuts (Hilti, Fisherman make)</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Fasteners</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">High-tensile bolts & nuts (Hilti)</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>🎨</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">🎨</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Paints & Coatings</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">Anti-rust, weather-resistant industrial-grade paints</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Paints & Coatings</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">Anti-rust industrial-grade paints</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>🪨</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">🪨</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Flooring</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">High-quality cement, aggregates, admixtures for RCC</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Flooring</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">High-quality cement & admixtures for RCC</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid var(--border);">
-          <span>🧱</span>
+        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+          <span style="font-size:1.5rem; background:rgba(247,147,30,0.1); width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:10px;">🧱</span>
           <div>
-            <div style="font-size:0.85rem;font-weight:600;color:#fff;">Cladding</div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">GI sheets, sandwich panels, PUF panels for insulation</div>
+            <div style="font-size:0.9rem;font-weight:700;color:#0A1F44;font-family:'Outfit',sans-serif;">Cladding</div>
+            <div style="font-size:0.75rem;color:#6B7280;line-height:1.4;">GI sheets, PUF panels for insulation</div>
           </div>
         </div>
       </div>
@@ -1040,118 +1078,156 @@
 </section>
 
 <!-- ==================== TESTIMONIALS ==================== -->
-<section id="testimonials" class="section">
+<section id="testimonials" class="section" style="background:#FFFFFF;">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Client Feedback</div>
-      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Client Feedback</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">What Our <span style="color:#F7931E;">Clients Say</span></h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="testimonial-card animate-in">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">GN Management Services demonstrated exceptional professionalism throughout our industrial shed construction project. Their team's technical expertise and on-time delivery exceeded our expectations completely.</p>
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">P</div>
+      <div class="premium-card hover-glow hover-scale animate-in" style="padding:2.5rem; position:relative;">
+        <div style="font-size:4rem; color:rgba(247,147,30,0.15); font-family:serif; line-height:1; position:absolute; top:1.5rem; left:1.5rem;">"</div>
+        <p style="color:#4B5563; font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; position:relative; z-index:1; margin-top:2rem;">GN Management Services demonstrated exceptional professionalism throughout our industrial shed construction project. Their team's technical expertise and on-time delivery exceeded our expectations completely.</p>
+        <div style="color:#F7931E; font-size:1.2rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
+        <div style="display:flex; align-items:center; gap:1rem; border-top:1px solid #E5E7EB; padding-top:1.5rem;">
+          <div style="width:48px; height:48px; border-radius:50%; background:#0A1F44; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem;">P</div>
           <div>
-            <div class="author-name">Project Manager</div>
-            <div class="author-role">Praptham Tech Solution Pvt. Ltd.</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem;">Project Manager</div>
+            <div style="font-size:0.8rem; color:#6B7280;">Praptham Tech Solution</div>
           </div>
         </div>
       </div>
 
-      <div class="testimonial-card animate-in animate-delay-2">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">The OFC laying work executed by GN Management Services was flawless. Their team's attention to industry standards and their rapid deployment capability across multiple telecom zones is truly commendable.</p>
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">D</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-2" style="padding:2.5rem; position:relative;">
+        <div style="font-size:4rem; color:rgba(247,147,30,0.15); font-family:serif; line-height:1; position:absolute; top:1.5rem; left:1.5rem;">"</div>
+        <p style="color:#4B5563; font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; position:relative; z-index:1; margin-top:2rem;">The OFC laying work executed by GN Management Services was flawless. Their team's attention to industry standards and their rapid deployment capability across multiple telecom zones is truly commendable.</p>
+        <div style="color:#F7931E; font-size:1.2rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
+        <div style="display:flex; align-items:center; gap:1rem; border-top:1px solid #E5E7EB; padding-top:1.5rem;">
+          <div style="width:48px; height:48px; border-radius:50%; background:#0A1F44; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem;">D</div>
           <div>
-            <div class="author-name">Operations Director</div>
-            <div class="author-role">Pace Digitek Ltd.</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem;">Operations Director</div>
+            <div style="font-size:0.8rem; color:#6B7280;">Pace Digitek Ltd.</div>
           </div>
         </div>
       </div>
 
-      <div class="testimonial-card animate-in animate-delay-4">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Their civil construction and structural fabrication work for our project was delivered to the highest quality standards. GN Management Services is a reliable partner for complex infrastructure projects.</p>
-        <div class="testimonial-stars">★★★★★</div>
-        <div class="testimonial-author">
-          <div class="author-avatar">M</div>
+      <div class="premium-card hover-glow hover-scale animate-in animate-delay-4" style="padding:2.5rem; position:relative;">
+        <div style="font-size:4rem; color:rgba(247,147,30,0.15); font-family:serif; line-height:1; position:absolute; top:1.5rem; left:1.5rem;">"</div>
+        <p style="color:#4B5563; font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem; position:relative; z-index:1; margin-top:2rem;">Their civil construction and structural fabrication work for our project was delivered to the highest quality standards. GN Management Services is a reliable partner for complex infrastructure projects.</p>
+        <div style="color:#F7931E; font-size:1.2rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
+        <div style="display:flex; align-items:center; gap:1rem; border-top:1px solid #E5E7EB; padding-top:1.5rem;">
+          <div style="width:48px; height:48px; border-radius:50%; background:#0A1F44; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:800; font-size:1.2rem;">M</div>
           <div>
-            <div class="author-name">Site Engineer</div>
-            <div class="author-role">Melco India Pvt. Ltd.</div>
+            <div style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; font-size:0.95rem;">Site Engineer</div>
+            <div style="font-size:0.8rem; color:#6B7280;">Melco India Pvt. Ltd.</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Quote highlight -->
-    <div style="margin-top:4rem;text-align:center;background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(13,32,69,0.5));border:1px solid rgba(249,115,22,0.2);border-radius:20px;padding:3rem 2rem;">
-      <div style="font-size:4rem;opacity:0.4;font-family:Georgia,serif;color:var(--accent);">"</div>
-      <p style="font-family:'Rajdhani',sans-serif;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:600;color:#fff;max-width:700px;margin:0 auto 1rem;line-height:1.4;">Coming together is a beginning, keeping together is progress, and working together is success.</p>
-      <div style="font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;">— GN Management Services</div>
+    <div style="margin-top:4rem;text-align:center;background:linear-gradient(135deg, #0A1F44, #1a365d);border-radius:24px;padding:4rem 2rem;box-shadow:0 20px 40px rgba(10,31,68,0.15);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;width:200px;height:200px;background:radial-gradient(circle, rgba(247,147,30,0.15), transparent);border-radius:50%;transform:translate(-50%,-50%);"></div>
+      <div style="position:absolute;bottom:0;right:0;width:300px;height:300px;background:radial-gradient(circle, rgba(247,147,30,0.1), transparent);border-radius:50%;transform:translate(50%,50%);"></div>
+      
+      <div style="font-size:5rem;color:rgba(247,147,30,0.2);font-family:serif;line-height:0.5;margin-bottom:1rem;position:relative;z-index:1;">"</div>
+      <p style="font-family:'Outfit',sans-serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;color:#ffffff !important;max-width:800px;margin:0 auto 2rem;line-height:1.4;position:relative;z-index:1;">Coming together is a beginning, keeping together is progress, and working together is success.</p>
+      <div style="font-size:1rem;color:#F7931E;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;position:relative;z-index:1;">— GN Management Services</div>
     </div>
   </div>
 </section>
 
 <!-- ==================== FAQ ==================== -->
+<style>
+  #faq .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+  #faq .faq-question {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    user-select: none;
+  }
+  #faq .faq-icon {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  #faq .faq-answer {
+    display: none;
+  }
+  #faq .faq-item.open .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+  #faq .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 <section id="faq" class="section section-alt">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem;">
-      <div class="section-label" style="justify-content:center;">Common Questions</div>
-      <h2 class="section-title">Frequently <span>Asked Questions</span></h2>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Common Questions</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Frequently <span>Asked Questions</span></h2>
     </div>
 
     <div style="max-width:800px;margin:0 auto;">
-      <div class="faq-item" id="faq-1">
-        <div class="faq-question" onclick="toggleFAQ('faq-1')">
+      <div class="faq-item premium-card" id="faq-1" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-1')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           What services does GN Management Services offer?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">GN Management Services offers 8 major service verticals: OFC Laying & Execution, Tower Erection & Maintenance, Civil Infrastructure, Industrial Shed & PEB Construction, Highway Safety Works, Solar Power Installation, Office Interior Solutions, and Design Engineering (TLVA/PLVA). We are a truly integrated infrastructure company.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">GN Management Services offers 8 major service verticals: OFC Laying & Execution, Tower Erection & Maintenance, Civil Infrastructure, Industrial Shed & PEB Construction, Highway Safety Works, Solar Power Installation, Office Interior Solutions, and Design Engineering (TLVA/PLVA). We are a truly integrated infrastructure company.</div>
       </div>
 
-      <div class="faq-item" id="faq-2">
-        <div class="faq-question" onclick="toggleFAQ('faq-2')">
+      <div class="faq-item premium-card" id="faq-2" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-2')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           Where does GN Management Services operate?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">Our Head Office is at Plot No. 21, Railway Road, NIT-5, Faridabad 121001, Haryana. We also have a Branch Office at 375, Beicharana, Satwari, Jammu 180003. Our project execution spans PAN India, covering multiple telecom zones and states.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">Our Head Office is at Plot No. 21, Railway Road, NIT-5, Faridabad 121001, Haryana. We also have a Branch Office at 375, Beicharana, Satwari, Jammu 180003. Our project execution spans PAN India, covering multiple telecom zones and states.</div>
       </div>
 
-      <div class="faq-item" id="faq-3">
-        <div class="faq-question" onclick="toggleFAQ('faq-3')">
+      <div class="faq-item premium-card" id="faq-3" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-3')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           How many kilometers of OFC has GN Management Services executed?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">Our Sr. Manager for OFC & FTTx, Rahul Kumar, has successfully executed around 50,000 kilometers of OFC works throughout PAN India for various customers. This includes NLD (National Long Distance) and Intracity OFC route construction.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">Our Sr. Manager for OFC & FTTx, Rahul Kumar, has successfully executed around 50,000 kilometers of OFC works throughout PAN India for various customers. This includes NLD (National Long Distance) and Intracity OFC route construction.</div>
       </div>
 
-      <div class="faq-item" id="faq-4">
-        <div class="faq-question" onclick="toggleFAQ('faq-4')">
+      <div class="faq-item premium-card" id="faq-4" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-4')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           Who are your major clients and project partners?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">We currently collaborate with Praptham Tech Solution Pvt. Ltd. (Bangalore), Pace Digitek Ltd. (Bengaluru), and Melco India Pvt. Ltd. We are also actively working on the BSNL 4G Network Expansion Project, providing tower erection, painting, foundation, and solar installation services.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">We currently collaborate with Praptham Tech Solution Pvt. Ltd. (Bangalore), Pace Digitek Ltd. (Bengaluru), and Melco India Pvt. Ltd. We are also actively working on the BSNL 4G Network Expansion Project, providing tower erection, painting, foundation, and solar installation services.</div>
       </div>
 
-      <div class="faq-item" id="faq-5">
-        <div class="faq-question" onclick="toggleFAQ('faq-5')">
+      <div class="faq-item premium-card" id="faq-5" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-5')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           What quality standards does GN Management Services follow?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">We use ISI certified materials (MS, ISMB, ISMC, H-Beams) and comply with BSNL and TEC specifications. We follow applicable Indian Standards and international standards where local standards are not available. We use anti-corrosive epoxy/enamel paints for long-life corrosion protection.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">We use ISI certified materials (MS, ISMB, ISMC, H-Beams) and comply with BSNL and TEC specifications. We follow applicable Indian Standards and international standards where local standards are not available. We use anti-corrosive epoxy/enamel paints for long-life corrosion protection.</div>
       </div>
 
-      <div class="faq-item" id="faq-6">
-        <div class="faq-question" onclick="toggleFAQ('faq-6')">
+      <div class="faq-item premium-card" id="faq-6" style="margin-bottom:1rem; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+        <div class="faq-question" onclick="toggleFAQ('faq-6')" style="color:#0A1F44; font-family:'Outfit',sans-serif; font-weight:700; padding:1.5rem; background:#FFFFFF; border-radius:12px;">
           How can I contact GN Management Services?
-          <div class="faq-icon">+</div>
+          <div class="faq-icon" style="color:#F7931E;">+</div>
         </div>
-        <div class="faq-answer">You can reach us at: Phone: +91-9810737881 | Tel: 0129-4001313. Email: info.gnms01@gmail.com or Caharpreet@yahoo.com. Visit our website: www.gnmanagementservices.com. You can also visit our offices in Faridabad or Jammu.</div>
+        <div class="faq-answer" style="color:#6B7280; padding:0 1.5rem 1.5rem 1.5rem; background:#FFFFFF; border-radius:0 0 12px 12px;">You can reach us at: Phone: +91-9810737881 | Tel: 0129-4001313. Email: info.gnms01@gmail.com or Caharpreet@yahoo.com. Visit our website: www.gnmanagementservices.com. You can also visit our offices in Faridabad or Jammu.</div>
       </div>
     </div>
   </div>
@@ -1159,44 +1235,44 @@
 
 
 <!-- ==================== ESTEEMED CLIENTS ==================== -->
-<section class="section section-alt" id="clients">
+<section class="section section-alt" id="clients" style="background:#F8F9FA;">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
-      <div class="section-label" style="justify-content:center;">Our Trusted Partners</div>
-      <h2 class="section-title">Esteemed <span>Clients</span></h2>
+      <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E; justify-content:center;">Our Trusted Partners</div>
+      <h2 class="section-title" style="color:#0A1F44; font-weight:800;">Our Targeted <span style="color:#F7931E;">Clients</span></h2>
     </div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; background: var(--surface-2); padding: 3rem; border-radius: 20px; border: 1px solid var(--border);">
-      <img src="images/organized/clients/pdf_062.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_063.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_065.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_066.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_067.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_068.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_069.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_070.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_071.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_072.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
-      <img src="images/organized/clients/pdf_073.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%) brightness(200%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%) brightness(200%)'; this.style.opacity='0.7'" loading="lazy">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; background: #FFFFFF; padding: 3rem; border-radius: 20px; border: 1px solid #E5E7EB; box-shadow:0 4px 20px rgba(0,0,0,0.03);">
+      <img src="images/organized/clients/pdf_065.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_066.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_067.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_068.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_069.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_070.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_071.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_072.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
+      <img src="images/organized/clients/pdf_073.webp" alt="Client Logo" style="height: 60px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ==================== CTA SECTION ==================== -->
-<section class="cta-section section">
+<section class="cta-section section" style="background: linear-gradient(135deg, #0A1F44 0%, #123C73 100%); padding: 6rem 0; position: relative; overflow: hidden;">
+  <div style="position:absolute;top:-50%;left:-10%;width:300px;height:300px;background:radial-gradient(circle, rgba(247,147,30,0.3), transparent);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle, rgba(247,147,30,0.2), transparent);border-radius:50%;filter:blur(80px);z-index:0;"></div>
   <div class="section-inner" style="position:relative;z-index:1;text-align:center;">
-    <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:1rem;">Ready to Build Something Great?</div>
-    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:1.5rem;">
+    <div style="font-size:0.85rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.9) !important;margin-bottom:1rem;font-family:'Outfit',sans-serif;position:relative;z-index:2;">Ready to Build Something Great?</div>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;color:#ffffff !important;line-height:1.1;margin-bottom:1.5rem;position:relative;z-index:2;">
       Let's Start Your<br/>Next Project Today
     </h2>
-    <p style="color:rgba(255,255,255,0.85);font-size:1.05rem;max-width:600px;margin:0 auto 2.5rem;line-height:1.7;">
+    <p style="color:rgba(255,255,255,0.9) !important;font-size:1.1rem;max-width:600px;margin:0 auto 2.5rem;line-height:1.7;position:relative;z-index:2;">
       Contact our team for a free consultation and quotation. We deliver quality, safety, and excellence in every project we undertake.
     </p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-lg" style="background:#fff;color:var(--accent);font-weight:700;">
+      <a href="contact.html" class="btn btn-lg hover-glow hover-scale" style="background:#F7931E;color:#fff;font-weight:700;box-shadow:0 10px 20px rgba(247,147,30,0.3); border-radius:8px;">
         Get A Free Quote
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="tel:+919810737881" class="btn btn-lg btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">
+      <a href="tel:+919810737881" class="btn btn-lg hover-scale" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);color:#fff;font-weight:700; border-radius:8px;">
         📞 Call +91-9810737881
       </a>
     </div>
@@ -1204,50 +1280,43 @@
 </section>
 
 <!-- ==================== CONTACT QUICK ==================== -->
-<section id="contact-quick" class="section">
+<section id="contact-quick" class="section" style="background:#FFFFFF;">
   <div class="section-inner">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
       <!-- Info -->
       <div>
-        <div class="section-label">Get In Touch</div>
-        <h2 class="section-title mb-4">Contact <span>GN Management</span></h2>
-        <p class="section-desc mb-8">We're here to discuss your project requirements and provide the best infrastructure solutions.</p>
+        <div class="section-label" style="background:rgba(247,147,30,0.1); border:1px solid rgba(247,147,30,0.2); color:#F7931E;">Get In Touch</div>
+        <h2 class="section-title mb-4" style="color:#0A1F44; font-weight:800;">Contact <span style="color:#F7931E;">GN Management</span></h2>
+        <p class="section-desc mb-8" style="color:#6B7280; font-size:1.1rem;">We're here to discuss your project requirements and provide the best infrastructure solutions.</p>
 
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div class="contact-info-item">
-            <div class="contact-info-icon">📍</div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="contact-info-item" style="display:flex; align-items:flex-start; gap:1.25rem;">
+            <div class="contact-info-icon" style="background:rgba(247,147,30,0.1); color:#F7931E; width:54px; height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">📍</div>
             <div>
-              <div class="contact-info-label">Head Office</div>
-              <div class="contact-info-value">Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana</div>
+              <div class="contact-info-label" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; margin-bottom:0.25rem; font-size:1.1rem;">Head Office</div>
+              <div class="contact-info-value" style="color:#6B7280; line-height:1.5;">Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana</div>
             </div>
           </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">🏢</div>
+          <div class="contact-info-item" style="display:flex; align-items:flex-start; gap:1.25rem;">
+            <div class="contact-info-icon" style="background:rgba(247,147,30,0.1); color:#F7931E; width:54px; height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">🏢</div>
             <div>
-              <div class="contact-info-label">Branch Office</div>
-              <div class="contact-info-value">375, Beicharana, Satwari,<br/>Jammu 180003, J&K</div>
+              <div class="contact-info-label" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; margin-bottom:0.25rem; font-size:1.1rem;">Branch Office</div>
+              <div class="contact-info-value" style="color:#6B7280; line-height:1.5;">375, Beicharana, Satwari,<br/>Jammu 180003, J&K</div>
             </div>
           </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">📞</div>
+          <div class="contact-info-item" style="display:flex; align-items:flex-start; gap:1.25rem;">
+            <div class="contact-info-icon" style="background:rgba(247,147,30,0.1); color:#F7931E; width:54px; height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">📞</div>
             <div>
-              <div class="contact-info-label">Phone</div>
-              <div class="contact-info-value">+91-9810737881 | 0129-4001313</div>
+              <div class="contact-info-label" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; margin-bottom:0.25rem; font-size:1.1rem;">Phone</div>
+              <div class="contact-info-value" style="color:#6B7280; line-height:1.5;">+91-9810737881 | 0129-4001313</div>
             </div>
           </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">✉️</div>
+          <div class="contact-info-item" style="display:flex; align-items:flex-start; gap:1.25rem;">
+            <div class="contact-info-icon" style="background:rgba(247,147,30,0.1); color:#F7931E; width:54px; height:54px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;">✉️</div>
             <div>
-              <div class="contact-info-label">Email</div>
-              <div class="contact-info-value">info.gnms01@gmail.com<br/>Caharpreet@yahoo.com</div>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">🌐</div>
-            <div>
-              <div class="contact-info-label">Website</div>
-              <div class="contact-info-value">www.gnmanagementservices.com</div>
+              <div class="contact-info-label" style="font-family:'Outfit',sans-serif; font-weight:700; color:#0A1F44; margin-bottom:0.25rem; font-size:1.1rem;">Email</div>
+              <div class="contact-info-value" style="color:#6B7280; line-height:1.5;">info.gnms01@gmail.com<br/>Caharpreet@yahoo.com</div>
             </div>
           </div>
         </div>
@@ -1255,26 +1324,26 @@
 
       <!-- Quick Form -->
       <div>
-        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;">
-          <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:1.75rem;">Send Us A Message</h3>
+        <div class="premium-card animate-in animate-delay-2" style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:24px; padding:3rem; box-shadow:0 15px 40px rgba(10,31,68,0.08);">
+          <h3 style="font-family:'Outfit',sans-serif; font-size:1.5rem; font-weight:800; color:#0A1F44; margin-bottom:1.75rem;">Send Us A Message</h3>
           <form class="contact-form" onsubmit="handleFormSubmit(event)" id="quick-contact-form">
             <div class="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <label class="form-label" for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Full Name" required />
+                <label class="form-label" for="name" style="color:#4B5563; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; display:block;">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required style="width:100%; padding:0.875rem 1rem; border-radius:8px; border:1px solid #D1D5DB; background:#F9FAFB; color:#111827; font-family:inherit; transition:all 0.3s ease; outline:none;" onfocus="this.style.borderColor='#F7931E';this.style.boxShadow='0 0 0 3px rgba(247,147,30,0.1)'" onblur="this.style.borderColor='#D1D5DB';this.style.boxShadow='none'" />
               </div>
               <div>
-                <label class="form-label" for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+                <label class="form-label" for="phone" style="color:#4B5563; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; display:block;">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required style="width:100%; padding:0.875rem 1rem; border-radius:8px; border:1px solid #D1D5DB; background:#F9FAFB; color:#111827; font-family:inherit; transition:all 0.3s ease; outline:none;" onfocus="this.style.borderColor='#F7931E';this.style.boxShadow='0 0 0 3px rgba(247,147,30,0.1)'" onblur="this.style.borderColor='#D1D5DB';this.style.boxShadow='none'" />
               </div>
             </div>
             <div class="mb-4">
-              <label class="form-label" for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              <label class="form-label" for="email" style="color:#4B5563; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; display:block;">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required style="width:100%; padding:0.875rem 1rem; border-radius:8px; border:1px solid #D1D5DB; background:#F9FAFB; color:#111827; font-family:inherit; transition:all 0.3s ease; outline:none;" onfocus="this.style.borderColor='#F7931E';this.style.boxShadow='0 0 0 3px rgba(247,147,30,0.1)'" onblur="this.style.borderColor='#D1D5DB';this.style.boxShadow='none'" />
             </div>
             <div class="mb-4">
-              <label class="form-label" for="service">Service Required</label>
-              <select id="service" name="service">
+              <label class="form-label" for="service" style="color:#4B5563; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; display:block;">Service Required</label>
+              <select id="service" name="service" style="width:100%; padding:0.875rem 1rem; border-radius:8px; border:1px solid #D1D5DB; background:#F9FAFB; color:#111827; font-family:inherit; transition:all 0.3s ease; outline:none;" onfocus="this.style.borderColor='#F7931E';this.style.boxShadow='0 0 0 3px rgba(247,147,30,0.1)'" onblur="this.style.borderColor='#D1D5DB';this.style.boxShadow='none'">
                 <option value="">Select a Service</option>
                 <option>OFC Laying & Execution</option>
                 <option>Tower Erection & Maintenance</option>
@@ -1288,18 +1357,18 @@
               </select>
             </div>
             <div class="mb-6">
-              <label class="form-label" for="message">Project Details</label>
-              <textarea id="message" name="message" rows="4" placeholder="Briefly describe your project requirements..."></textarea>
+              <label class="form-label" for="message" style="color:#4B5563; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; display:block;">Project Details</label>
+              <textarea id="message" name="message" rows="4" placeholder="Briefly describe your project requirements..." style="width:100%; padding:0.875rem 1rem; border-radius:8px; border:1px solid #D1D5DB; background:#F9FAFB; color:#111827; font-family:inherit; transition:all 0.3s ease; outline:none;" onfocus="this.style.borderColor='#F7931E';this.style.boxShadow='0 0 0 3px rgba(247,147,30,0.1)'" onblur="this.style.borderColor='#D1D5DB';this.style.boxShadow='none'"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" id="submit-btn">
+            <button type="submit" class="btn hover-glow hover-scale" style="width:100%;justify-content:center; background:#F7931E; color:#fff; font-weight:700; padding:1.2rem; border-radius:12px; font-size:1.1rem; margin-bottom: 1.5rem; border:none; cursor:pointer;" id="submit-btn">
               Send Message
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </button>
           </form>
           <div id="form-success" style="display:none;text-align:center;padding:2rem;">
             <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-            <div style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Message Sent!</div>
-            <div style="font-size:0.9rem;color:var(--text-secondary);">Thank you for reaching out. Our team will contact you within 24 hours.</div>
+            <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;color:#0A1F44;margin-bottom:0.5rem;">Message Sent!</div>
+            <div style="font-size:0.9rem;color:#6B7280;">Thank you for reaching out. Our team will contact you within 24 hours.</div>
           </div>
         </div>
       </div>
@@ -1312,26 +1381,26 @@
   <div class="footer-top">
     <div class="footer-about">
       <div class="nav-logo" style="margin-bottom:1rem;">
-        <div class="logo-icon">GN</div>
+        <div class="logo-icon animated-logo-icon">GN</div>
         <div class="logo-text">
-          <div class="logo-name">GN Management Services</div>
+          <div class="logo-name"><span class="brand-highlight">GN Management</span> Services</div>
           <div class="logo-sub">ENGINEERING &bull; INFRASTRUCTURE &bull; EXCELLENCE</div>
         </div>
       </div>
       <p>GN Management Services delivers integrated Telecom & Civil Infrastructure solutions across India. Founded in 2021, we specialize in OFC laying, tower erection, solar installation, civil construction, and office interiors.</p>
       <div style="margin:1.25rem 0;">
-        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Compliance</div>
+        <div style="font-size:0.78rem;color:#4B5563;margin-bottom:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Compliance</div>
         <div class="footer-certifications">
           <span class="cert-badge">ISI Certified</span>
-          <span class="cert-badge">BSNL Compliant</span>
           <span class="cert-badge">TEC Standards</span>
           <span class="cert-badge">ISO Quality</span>
         </div>
       </div>
       <div class="social-links">
-        <a href="#" class="social-link" title="LinkedIn">in</a>
-        <a href="#" class="social-link" title="Twitter">X</a>
-        <a href="#" class="social-link" title="Facebook">f</a>
+        <a href="https://linkedin.com/company/gnmanagementservices" class="social-link" target="_blank" title="LinkedIn">in</a>
+        <a href="https://twitter.com/gnmanagement" class="social-link" target="_blank" title="X (Twitter)">X</a>
+        <a href="https://instagram.com/gnmanagementservices" class="social-link" target="_blank" title="Instagram">ig</a>
+        <a href="https://facebook.com/gnmanagementservices" class="social-link" target="_blank" title="Facebook">f</a>
         <a href="mailto:info.gnms01@gmail.com" class="social-link" title="Email">@</a>
       </div>
     </div>
@@ -1365,23 +1434,23 @@
 
     <div>
       <div class="footer-title">Contact Info</div>
-      <div style="display:flex;flex-direction:column;gap:0.875rem;">
-        <div style="font-size:0.825rem;color:var(--text-secondary);">
-          <div style="font-weight:600;color:#cbd5e1;margin-bottom:2px;">📍 Head Office</div>
-          Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">📍 Head Office</div>
+          <div style="line-height:1.6;">Plot No. 21, Railway Road, NIT-5,<br/>Faridabad 121001, Haryana</div>
         </div>
-        <div style="font-size:0.825rem;color:var(--text-secondary);">
-          <div style="font-weight:600;color:#cbd5e1;margin-bottom:2px;">🏢 Branch Office</div>
-          375, Beicharana, Satwari,<br/>Jammu 180003, J&K
+        <div style="font-size:0.9rem;color:#4B5563;">
+          <div style="font-weight:700;color:#0A1F44;margin-bottom:4px;display:flex;align-items:center;gap:6px;">🏢 Branch Office</div>
+          <div style="line-height:1.6;">375, Beicharana, Satwari,<br/>Jammu 180003, J&K</div>
         </div>
-        <div style="font-size:0.825rem;">
-          <a href="tel:+919810737881" style="color:var(--accent);">📞 +91-9810737881</a>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:+919810737881" style="color:#0A1F44;text-decoration:none;">+91-9810737881</a>
         </div>
-        <div style="font-size:0.825rem;">
-          <a href="tel:01294001313" style="color:var(--text-secondary);">Tel: 0129-4001313</a>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          📞 <a href="tel:01294001313" style="color:#0A1F44;text-decoration:none;">Tel: 0129-4001313</a>
         </div>
-        <div style="font-size:0.825rem;">
-          <a href="mailto:info.gnms01@gmail.com" style="color:var(--accent);">✉️ info.gnms01@gmail.com</a>
+        <div style="font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:6px;">
+          ✉️ <a href="mailto:info.gnms01@gmail.com" style="color:#F7931E;text-decoration:none;">info.gnms01@gmail.com</a>
         </div>
       </div>
     </div>
@@ -1422,6 +1491,7 @@ let mobileOpen = false;
 mobileBtn.addEventListener('click', () => {
   mobileOpen = !mobileOpen;
   mobileNav.classList.toggle('open', mobileOpen);
+  document.body.classList.toggle('menu-open', mobileOpen);
   mobileBtn.setAttribute('aria-expanded', mobileOpen);
   const spans = mobileBtn.querySelectorAll('span');
   if (mobileOpen) {
