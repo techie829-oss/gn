@@ -33,6 +33,22 @@ img, video, iframe, svg, canvas {
   .nav-inner {
     padding: 0.75rem 1rem !important;
     min-height: 60px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .nav-logo {
+    max-width: calc(100% - 40px) !important;
+    flex-shrink: 1 !important;
+    overflow: hidden;
+  }
+  
+  .logo-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   /* Hide floating hero cards — they overflow on tablet */
@@ -347,13 +363,18 @@ img, video, iframe, svg, canvas {
     justify-content: space-between !important;
     width: 30px !important;
     height: 20px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    z-index: 1000;
+    flex-shrink: 0 !important;
   }
 
   /* Animated X */
   #mobile-menu-btn span {
     width: 100% !important;
     height: 2px !important;
-    background: #fff !important;
+    background: #0A1F44 !important;
     border-radius: 2px !important;
     transform-origin: center !important;
     transition: all 0.3s ease !important;
